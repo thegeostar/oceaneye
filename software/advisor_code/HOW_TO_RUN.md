@@ -5,6 +5,25 @@
 > 🔴 **Right now, nothing here runs.** PyTorch is not installed and the laptop has the wrong
 > Python version. Section 2 fixes that. Until it's done, every command below will fail.
 
+## 0. Check which environment you're in — every single time
+
+VS Code **auto-activates the wrong one.** When you open a terminal it turns on `.venv`, which
+is Python 3.12 and has no PyTorch. Her model needs `.venv311`. Look at the start of your prompt:
+
+| Prompt shows | Which one | Her model runs? |
+|---|---|---|
+| `(.venv)` | Python 3.12 — our own demo code | ❌ no |
+| `(.venv311)` | Python 3.11 — Prof. Wang's model | ✅ yes |
+
+```bash
+deactivate                      # leave whichever one VS Code picked
+source .venv311/bin/activate    # enter the right one
+python --version                # must say 3.11.x
+```
+
+**If you ever see `ModuleNotFoundError: No module named 'torch'`, this is almost always why.**
+You are in `.venv`, not `.venv311`. It does not mean the install failed.
+
 ---
 
 ## 1. Only 6 things in this folder matter
