@@ -33,15 +33,11 @@ link at the top of the repo's README so nobody has to ask.
 
 ## Set it up — copy these one line at a time
 
-Open a terminal in this folder, then:
+**Already done for you:** `git init` has been run and everything is committed. You can
+check with `git log --oneline` — you should see two entries. So skip straight to
+creating the repo on GitHub.
 
-```bash
-git init
-git add .
-git commit -m "OceanEye Group 22 — competition folder"
-```
-
-Now create the repo on GitHub. You are already logged in as `Dararoth-ML`:
+Open a terminal in this folder. You are already logged in as `Dararoth-ML`, so:
 
 ```bash
 gh repo create oceaneye-group22 --private --source=. --push
