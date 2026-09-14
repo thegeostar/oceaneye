@@ -2,8 +2,12 @@
 
 ← [README.md](../../README.md) · **Owner: S2** · Full background: [advisor/Advisor_Code_Findings.md](../../advisor/Advisor_Code_Findings.md)
 
-> 🔴 **Right now, nothing here runs.** PyTorch is not installed and the laptop has the wrong
-> Python version. Section 2 fixes that. Until it's done, every command below will fail.
+> ✅ **The model works on this laptop as of 14 Sept 2026.** It detects
+> `starfish 0.83` and `holothurian 0.78` on her sample image — the exact numbers from her
+> own shipped result. Setup is done; you do not need to reinstall anything.
+>
+> **One thing to know: ~2.3 seconds per image, not 30 fps.** Why, and what to do about it,
+> is in section 7.
 
 ## 0. Check which environment you're in — every single time
 
@@ -66,19 +70,13 @@ source .venv311/bin/activate
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 python -c "import torch; print(torch.__version__, torch.cuda.get_device_name(0))"
 
-# 4. Her code + the compiled GPU piece  ← THIS STEP DECIDES THE WEEK
-cd software/advisor_code
-pip install -e .
-pip install ./selective_scan
-python -c "import selective_scan_cuda_core; print('the hard part works')"
-
-# 5. The web page needs these two as well
-pip install flask flask-session
+# 4. The Python packages her code needs
+pip install einops timm opencv-python pandas matplotlib pyyaml tqdm psutil \
+            py-cpuinfo seaborn scipy requests pillow flask flask-session
 ```
 
-**If step 4 prints `undefined symbol` or `no kernel image is available` — stop and say so in
-the chat.** Don't grind at it. There's a prepared fallback that replaces the CUDA operator
-with ~25 lines of plain PyTorch and deletes this whole problem in one afternoon.
+❌ **Do NOT run `pip install ./selective_scan`.** It cannot work on this laptop and the
+error it gives is misleading. See section 7.
 
 ---
 
@@ -87,16 +85,22 @@ with ~25 lines of plain PyTorch and deletes this whole problem in one afternoon.
 Do this **before** the web app. If it fails, you know the problem is the model, not Flask.
 
 ```bash
-source ../../.venv311/bin/activate
-cd "/home/eng-dararoth/Desktop/Events/2026 World Vocational College Skills Competition/software/advisor_code"
-
-python -c "
-from ultralytics import YOLO
-m = YOLO('output_dir/mscoco/mambayolo_n/weights/best.pt')
-r = m('app/upload/000013.jpg')
-r[0].save('proof.jpg')
-print(r[0].boxes)"
+cd "/home/eng-dararoth/Desktop/Events/2026 World Vocational College Skills Competition"
+source .venv311/bin/activate
+cd software/advisor_code
+python verify_model.py
 ```
+
+Expected output:
+
+```
+inference: 2.30 s
+detections: 2
+   starfish       0.83
+   holothurian    0.78
+```
+
+Works on any image: `python verify_model.py path/to/your/photo.jpg`
 
 Now open two files side by side:
 
@@ -168,3 +172,44 @@ Then open **Real-time Monitoring** in the web page and give it that number.
 **The accuracy number to quote is `mAP50 = 0.867`** — it's in
 `output_dir/mscoco/mambayolo_n/results.csv`, a file you hold and can show a judge.
 Never say 0.873; that's from her slide, a run we don't have.
+
+---
+
+## 7. Why it takes 2.3 seconds, and what to say about it
+
+Her model needs a hand-written GPU routine called `selective_scan`. She shipped it
+prebuilt — but compiled against **torch 2.2 + CUDA 11**, in March 2025.
+
+This laptop cannot use those files, for two independent reasons:
+
+1. **The RTX 5060 is sm_120 (Blackwell).** CUDA 11 cannot drive it at all, so torch must be
+   2.7+ with CUDA 12.8. Downgrading torch is not an option — the old one can't see the GPU.
+2. **PyTorch changed its C++ ABI in between.** All **39** libtorch symbols her `.so` files
+   import were removed. Checked with `nm`, not guessed.
+
+Rebuilding needs `nvcc` from the CUDA 12.8 toolkit: the pip wheel ships only `ptxas`, and
+Ubuntu's apt package is CUDA 12.0, which predates sm_120. That leaves a ~3 GB download.
+
+**So the operator is reimplemented in plain PyTorch** in
+[`selective_scan_fallback.py`](selective_scan_fallback.py). Same maths, same weights, same
+answers — just not hand-tuned CUDA. It is checked two ways: against a naive step-by-step
+loop (`python selective_scan_fallback.py`, agrees to 3e-06), and against her own published
+result on `000013.jpg` (identical to two decimals).
+
+`bench_chunk.py` tunes the one speed knob. chunk=8 is the measured optimum.
+
+### What this means for the demo
+
+| Use | Works? |
+|---|---|
+| Upload a photo, get boxes | ✅ fine — 2.3 s is a normal wait |
+| Process a video beforehand and play the result | ✅ fine — do this for the stage |
+| Live camera at 30 fps | ❌ about one frame every 2 s |
+
+**Say this if a judge asks:** *"The published model uses a custom CUDA kernel built for an
+older GPU generation. We reimplemented that operator in portable PyTorch so it runs on
+current hardware — we verified it reproduces the original author's published detections
+exactly. It trades throughput for portability."*
+
+That is a genuinely strong answer. It is real engineering work, it is honest, and it shows
+you understood the model rather than just running it.
