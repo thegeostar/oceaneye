@@ -8,7 +8,8 @@
 *.mp4
 *.avi
 *.mov
-software/advisor_code/
+software/advisor_code/*
+!software/advisor_code/HOW_TO_RUN.md
 advisor/videos/
 software/data/footage/
 software/data/weights/

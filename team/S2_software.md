@@ -1,6 +1,6 @@
 # S2 — Software
 
-← [README.md](../README.md) · full detail: [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md) · every command: [`../software/README.md`](../software/README.md)
+← [README.md](../README.md) · **how to run it: [`../software/advisor_code/HOW_TO_RUN.md`](../software/advisor_code/HOW_TO_RUN.md)** · full detail: [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md) · every command: [`../software/README.md`](../software/README.md)
 
 **You own:** making Prof. Wang's AI run, camera → AI, what the judges see on screen, and the backups.
 **On stage:** minutes **06:30 – 13:00** — the AI section.

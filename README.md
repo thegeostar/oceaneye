@@ -62,7 +62,7 @@ Open these only when your page sends you there.
 | `advisor/` | What Prof. Wang sent. **[Advisor_Code_Findings.md](advisor/Advisor_Code_Findings.md)** = what actually works and what's broken. **[PPTX_Translation_EN.md](advisor/PPTX_Translation_EN.md)** = her slides in English; slide 11 is the attribution slide | S2 / S3 |
 | `presentation/` | `Operation_Script_v2.docx` — the stage script, Q&A bank, fallback lines. **Read only your own role** | all |
 | `hardware/` | Shopping list, shops, prices. **`Purchase_Log.md` is a form — fill it in** | S1 |
-| `software/` | Our code + `README.md`, every command you type. `advisor_code/` is Prof. Wang's, with our fixes | S2 |
+| `software/` | Our code + `README.md`. Prof. Wang's model lives in `advisor_code/` — **[HOW_TO_RUN.md](software/advisor_code/HOW_TO_RUN.md)** is the only page you need for it | S2 |
 | `reference/` | Official rules and scoring · [`Core_Strategy_Data_Quality.md`](reference/Core_Strategy_Data_Quality.md) (why the light goes to the side) · `Research_Brief.md` (**not this week**, look-up only) | all |
 | `archive/` · `.venv/` | Old drafts and the Python install. Ignore both. **Never move `.venv/`** | — |
 
