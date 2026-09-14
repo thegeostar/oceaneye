@@ -29,7 +29,7 @@ Two more, for everyone:
 4. It must work **with the Wi-Fi off.** The venue has no internet.
 5. **20 minutes on stage.** Three of us, one part each.
 
-**The thing that wins:** 25 of the 100 points go to *running it smoothly*. Zero points go to how clever the AI is. **Rehearse more than you build.**
+**The thing that wins:** 25 of the 100 points go to *running it smoothly* — Skill Proficiency 15 + Operational Standardization 10. Zero points go to how clever the AI is. **Rehearse more than you build.**
 
 ---
 

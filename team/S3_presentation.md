@@ -73,12 +73,10 @@ This flatters the origin technology, hits *regional development* and *rural revi
 **Mon 14**
 - [ ] Send the permission message above. Before anything else.
 - [ ] Build slides 1–5 and 9–11 with **placeholder numbers in [brackets]** so the gaps are obvious.
-- [ ] Write out the attribution slide (§2) in full. It needs no data from anyone — finish it today.
-- [ ] Read your own section of `Operation_Script_v2.docx` aloud once, with a timer.
+- [ ] Write out the attribution slide (§2) in full — it needs no data from anyone, so finish it today. Then read your own section of `Operation_Script_v2.docx` aloud once, with a timer.
 
 **Tue 15**
-- [ ] Replace every placeholder with a real measured number. Anything still in brackets tonight gets **deleted**, not guessed.
-- [ ] Slide 6 done with 0.867 and the honest APm note.
+- [ ] Replace every placeholder with a real measured number — including slide 6 (0.867, plus the honest APm note). Anything still in brackets tonight gets **deleted**, not guessed.
 - [ ] First untimed run-through of all three parts.
 
 **Wed 16 — FEATURE FREEZE**
@@ -93,10 +91,8 @@ This flatters the origin technology, hits *regional development* and *rural revi
 
 **Fri 18**
 - [ ] Slides on 2 USB sticks + 1 cloud folder, exported to **PDF** as well as PPTX.
-- [ ] Full run with **Wi-Fi off**, after a **cold boot**.
-- [ ] Final check: every number on every slide is one you can point at a file for.
-
-Sat 19 = travel/rest. **Nothing new.**
+- [ ] Full run with **Wi-Fi off**, after a **cold boot**. Final check: every number on every slide is one you can point at a file for.
+- [ ] Sat 19 = travel/rest. **Nothing new.**
 
 ## 6. Where the points are — verified against `01_Competition/Scoring_Criteria.docx`
 
@@ -109,8 +105,6 @@ Sat 19 = travel/rest. **Nothing new.**
 | **10** | **Professional Conduct** | ✅ — but it splits: Ethics/IP **4** + Craftsmanship **3** + Safety Awareness **3**. |
 | **4** | Professional Ethics & Norms — "respect for IP" | ✅ This is §2. Almost no team does it. Cheapest points on the board. |
 | **3** | Cost-Effectiveness | ✅ Say "US$30, not US$2,500" on stage and log every purchase. |
-| 10 | Application Value | Practicality 4 (§4 is this) + Cost-Effectiveness 3 + Sustainability 3. |
-| 10 | Innovation & Creativity | Innovation Awareness 4 + Innovation Outcomes 6. |
-| 5 | On-site Presentation | Only 5 — so the deck serves the operation, not the reverse. |
+| 10+10+5 | Application Value · Innovation & Creativity · On-site Presentation | Practicality 4 (§4 is this) + Cost-Eff. 3 + Sustainability 3 · Innovation Awareness 4 + Outcomes 6 · Presentation only **5**, so the deck serves the operation, not the reverse. |
 
 **Three sentences that must never leave your mouth:** "we achieved 0.873" (quote **0.867** — it is in a file we hold; 0.873 is her slide, from a run we do not have) · "this is live" over a recorded file (say *"this is our recorded survey footage"*) · "the system has user authentication" (her login accepts any password).
