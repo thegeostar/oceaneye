@@ -1,6 +1,6 @@
 # OceanEye — Questions for Prof. Wang Li (王丽)
 
-> **← [START_HERE.md](../START_HERE.md) · Day 1 step 2 sends you here.**
+> **← [README.md](../README.md) · Day 1 step 2 sends you here.**
 >
 > **Owner:** S3 · **Do this now:** scroll to [📋 Copy-paste message](#-copy-paste-message-for-wechat--the-group), copy it, send it · **Then keep working.** Do not wait for her reply.
 >
@@ -23,7 +23,7 @@
 | A6 · Is the data URPC/DUO? | ✅ **URPC**, 4 classes, order `holothurian · echinus · starfish · scallop` |
 | A7 · Available online during the competition? | Still unanswered — kept below |
 
-📄 Full detail on what arrived → [`../02_Advisor/Advisor_Code_Findings.md`](../02_Advisor/Advisor_Code_Findings.md)
+📄 Full detail on what arrived → [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md)
 
 ---
 

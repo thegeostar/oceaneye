@@ -1,6 +1,6 @@
 # Putting this folder on GitHub — for someone who has never used Git
 
-← [START_HERE.md](../START_HERE.md) · **Owner: S3** · **20 minutes, once.**
+← [README.md](../README.md) · **Owner: S3** · **20 minutes, once.**
 
 ## What Git actually is, in 4 lines
 
@@ -22,7 +22,7 @@ on GitHub** — it rejects any single file over 100 MB. That is already handled:
 | Goes on GitHub | Stays on Google Drive |
 |---|---|
 | All the `.md` plans and notes | `best.pt` and every other `.pt` |
-| Our own code in `06_Software/oceaneye/` | `06_Software/advisor_code/` |
+| Our own code in `software/oceaneye/` | `software/advisor_code/` |
 | The script and slides (`.docx`, `.pptx`) | All `.mp4` footage |
 | The competition rules | `Mamba-YOLO-main.zip` |
 

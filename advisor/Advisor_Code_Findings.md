@@ -1,6 +1,6 @@
 # What Prof. Wang actually sent us — tested, 13 September
 
-> **← Back to [START_HERE.md](../START_HERE.md)**
+> **← Back to [README.md](../README.md)**
 >
 > **Owner:** S2 · **Open it when:** you are deciding what to run on stage, or someone asks "can't we just use her code?"
 >
@@ -25,7 +25,7 @@
 | Prebuilt CUDA operator | `selective_scan/*.so` | 90 MB | 🔶 Linux + Python **3.11** only |
 | Flask web app | `app/` | — | 🔶 needs the model to run |
 | Training logs + curves | `output_dir/*/results.csv`, `*.png` | — | ✅ readable, honest |
-| Her test footage | `02_Advisor/Reference_Videos/video_2026-09-13_13-57-08.mp4` | 8 MB | ✅ 45 s, 1280×720, 10 fps |
+| Her test footage | `advisor/videos/video_2026-09-13_13-57-08.mp4` | 8 MB | ✅ 45 s, 1280×720, 10 fps |
 | Her URPC dataset config | `URPC/URPC.yaml` | — | ✅ 4 classes, correct order |
 | The dataset itself | — | — | ❌ **not sent.** 3,717 train images referenced, none included |
 
@@ -79,7 +79,7 @@ The second run (`mambayolo_n10`) tops out at 0.863. Use `mambayolo_n`.
 
 **Why:** the export script she left behind (`untitled.py`) traces a model whose core operator is a hand-written CUDA kernel. That kernel cannot be captured into ONNX, so the exported graph is structurally right and numerically empty. The file is 365 MB of nothing.
 
-> 🔴 **Consequence: there is no shortcut.** "Just run the ONNX on CPU with no PyTorch" was the cheap path to an offline demo. It is closed. I left `best.onnx` out of our working copy so nobody loses a day to it; the original is untouched in `02_Advisor/`.
+> 🔴 **Consequence: there is no shortcut.** "Just run the ONNX on CPU with no PyTorch" was the cheap path to an offline demo. It is closed. I left `best.onnx` out of our working copy so nobody loses a day to it; the original is untouched in `advisor/`.
 
 ---
 
@@ -126,9 +126,9 @@ Two smaller things in the same file, worth knowing before anyone claims a featur
 
 ## 7. What I changed in our copy
 
-Our editable copy is **`06_Software/advisor_code/`**. Her original in `02_Advisor/Mamba-YOLO-main/` has **not been touched**.
+Our editable copy is **`software/advisor_code/`**. Her original in `advisor/Mamba-YOLO-main/` has **not been touched**.
 
-Every change is commented `# OceanEye:` so you can find them with `grep -rn "OceanEye:" 06_Software/advisor_code/`.
+Every change is commented `# OceanEye:` so you can find them with `grep -rn "OceanEye:" software/advisor_code/`.
 
 | File | Change | Why |
 |---|---|---|
@@ -157,7 +157,7 @@ Two routes to a demo. **They are not exclusive — Route B is the insurance for 
 **Route A — run her model.** Install Python 3.11 + PyTorch, load `best.pt`, run it on her 45-second video and on our own footage. If the GPU cooperates this is the strongest possible demo: a real published model, a real patent, real numbers.
 *Risk:* the Python 3.11 / PyTorch / sm_120 chain has three places to fail, and we have six days.
 
-**Route B — keep our own pipeline, use it if Route A stalls.** `06_Software/oceaneye` already runs end to end today.
+**Route B — keep our own pipeline, use it if Route A stalls.** `software/oceaneye` already runs end to end today.
 *Risk:* without Route A's weights it has no real model, and a mock detector cannot go on stage.
 
 🔴 **The honest read: Route A is worth the attempt and should start today, because the prize — a real model with a real patent behind it — is not something we can build ourselves this week.** Set a hard cutoff: if `best.pt` has not produced one correct box on one image by **end of Monday 15 September**, stop, switch to the pure-PyTorch operator fallback (§5), and if that also stalls, fall back to Route B and say plainly what we ran.

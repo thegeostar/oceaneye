@@ -1,6 +1,6 @@
 # Data
 
-> **← [START_HERE.md](../START_HERE.md) is the main page. This one just says what goes in these three folders.**
+> **← [README.md](../README.md) is the main page. This one just says what goes in these three folders.**
 >
 > **Owner:** S2 · **Open it when:** saving your own footage (Day 2–3), or backing up weights.
 >
@@ -12,7 +12,7 @@
 Bulk files. Nothing here is written by hand — it is downloaded, recorded, or produced by training.
 
 ```
-08_Data/
+software/data/
 ├── datasets/   ⛔ not needed any more — see below
 ├── footage/    ⭐ video recorded from your own rig — still the point
 └── weights/    backups of the model file
@@ -21,7 +21,7 @@ Bulk files. Nothing here is written by hand — it is downloaded, recorded, or p
 ## ⭐ Where the model actually lives
 
 ```
-06_Software/advisor_code/output_dir/mscoco/mambayolo_n/weights/best.pt     145 MB
+software/advisor_code/output_dir/mscoco/mambayolo_n/weights/best.pt     145 MB
 ```
 
 That is Prof. Wang's trained Mamba-YOLO, **mAP50 0.867**. It arrived 13 September.
@@ -53,7 +53,7 @@ Always record:
 - A clean baseline run at each turbidity level (L0–L3) for the ladder demo
 - **The Tier-0 backup**: a full perfect run, for use if hardware fails on the day
 
-Also here: **`02_Advisor/Reference_Videos/video_2026-09-13_13-57-08.mp4`** — her 45-second raw seabed clip. It is the footage her own demo runs on, so it is the safest possible input for a first end-to-end test. Use it to prove the pipeline works, then switch to your own.
+Also here: **`advisor/videos/video_2026-09-13_13-57-08.mp4`** — her 45-second raw seabed clip. It is the footage her own demo runs on, so it is the safest possible input for a first end-to-end test. Use it to prove the pipeline works, then switch to your own.
 
 ## `weights/`
 
@@ -67,8 +67,8 @@ Also here: **`02_Advisor/Reference_Videos/video_2026-09-13_13-57-08.mp4`** — h
 These files are large. If you ever put this project in git, add:
 
 ```
-08_Data/
-06_Software/advisor_code/output_dir/
+software/data/
+software/advisor_code/output_dir/
 .venv/
 .venv311/
 __pycache__/

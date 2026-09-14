@@ -1,4 +1,4 @@
-← [START_HERE.md](../START_HERE.md) · [Her slides in English](../02_Advisor/PPTX_Translation_EN.md) · [Operation_Script_v2.docx](../04_Presentation/Operation_Script_v2.docx)
+← [README.md](../README.md) · [Her slides in English](../advisor/PPTX_Translation_EN.md) · [Operation_Script_v2.docx](../presentation/Operation_Script_v2.docx)
 
 # S3 — Slides, Attribution, Cambodia Story
 
@@ -94,7 +94,7 @@ This flatters the origin technology, hits *regional development* and *rural revi
 - [ ] Full run with **Wi-Fi off**, after a **cold boot**. Final check: every number on every slide is one you can point at a file for.
 - [ ] Sat 19 = travel/rest. **Nothing new.**
 
-## 6. Where the points are — verified against `01_Competition/Scoring_Criteria.docx`
+## 6. Where the points are — verified against `reference/Scoring_Criteria.docx`
 
 | Pts | Item | Note |
 |---|---|---|

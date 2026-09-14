@@ -1,7 +1,7 @@
 # OceanEye — Hardware Plan
 ### What to buy, what it costs, and what to do if you can't get a robot
 
-> **← [START_HERE.md](../START_HERE.md) tells you what to do today. This page is the detail behind Day 1 step 1.**
+> **← [README.md](../README.md) tells you what to do today. This page is the detail behind Day 1 step 1.**
 >
 > **Owner:** S1 · **Open it when:** you are about to spend money · **Done with it when:** the camera works and is logged in [Purchase_Log.md](Purchase_Log.md).
 
@@ -80,7 +80,7 @@ If that prints a shape, you are done — plug it into `oceaneye_demo.py --source
 
 ## The full bill of materials — ordered by effect on data quality
 
-Priorities follow `03_Planning/Core_Strategy_Data_Quality.md`. **Note item 2: an offset torch matters more than a better camera.** If budget forces a choice, take a 720p camera plus a separate torch over a 1080p camera with ring lights only. Lighting geometry beats resolution.
+Priorities follow `reference/Core_Strategy_Data_Quality.md`. **Note item 2: an offset torch matters more than a better camera.** If budget forces a choice, take a 720p camera plus a separate torch over a 1080p camera with ring lights only. Lighting geometry beats resolution.
 
 ### Core — buy these (~US$62–96)
 
@@ -151,7 +151,7 @@ Many cheap "endoscope" cameras are **Wi-Fi or Android-OTG only** and will **not*
 
 **Test it in the shop.** Plug into a laptop; if the built-in Camera app shows a picture, it is UVC and OpenCV will open it.
 
-**Then within 10 minutes of getting home**, run the probe test above, and immediately do the settings-lock test in `03_Planning/Core_Strategy_Data_Quality.md` §3.8 — especially confirming **≥25 fps with MJPG**, because many UVC cameras default to raw YUYV and crawl at 5 fps.
+**Then within 10 minutes of getting home**, run the probe test above, and immediately do the settings-lock test in `reference/Core_Strategy_Data_Quality.md` §3.8 — especially confirming **≥25 fps with MJPG**, because many UVC cameras default to raw YUYV and crawl at 5 fps.
 
 **Test waterproofing on Day 1, not Day 5:** submerge the probe head in a glass of water for 10 minutes with nothing valuable nearby. Check for fogging or ingress.
 
@@ -159,7 +159,7 @@ Many cheap "endoscope" cameras are **Wi-Fi or Android-OTG only** and will **not*
 
 ## Gaps the advisor might fill
 
-Ask, but do not wait (`03_Planning/Open_Questions.md` Section A):
+Ask, but do not wait (`presentation/Open_Questions.md` Section A):
 
 | Gap | If she provides it |
 |---|---|
@@ -173,7 +173,7 @@ Ask, but do not wait (`03_Planning/Open_Questions.md` Section A):
 
 ## Record everything you buy
 
-Log every purchase in **`05_Hardware/Purchase_Log.md`** — item, price, shop, date. You need it for the cost-effectiveness slide (3 rubric points), and if a part fails you need to know where to get another one fast.
+Log every purchase in **`hardware/Purchase_Log.md`** — item, price, shop, date. You need it for the cost-effectiveness slide (3 rubric points), and if a part fails you need to know where to get another one fast.
 
 ### 🎯 The turbidity trick — your best demo moment for $2
 

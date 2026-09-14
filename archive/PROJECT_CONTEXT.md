@@ -1,3 +1,8 @@
+> **ARCHIVED 14 Sept 2026 — do not use.** Superseded by [README.md](../README.md) and the pages in `team/`.
+> Dates and folder links below are stale (the folders were renamed). Kept only so nothing is lost.
+
+---
+
 # PROJECT CONTEXT — OceanEye (Group 22)
 ### Master context file. If you are a fresh Claude session, read this first and you will have the whole project.
 

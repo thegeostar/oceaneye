@@ -59,14 +59,12 @@ Open these only when your page sends you there.
 
 | Folder | What's in it | Whose |
 |---|---|---|
-| `02_Advisor/` | What Prof. Wang sent. **[Advisor_Code_Findings.md](02_Advisor/Advisor_Code_Findings.md)** = what actually works and what's broken. **[PPTX_Translation_EN.md](02_Advisor/PPTX_Translation_EN.md)** = her slides in English; slide 11 is the attribution slide | S2 / S3 |
-| `04_Presentation/` | `Operation_Script_v2.docx` — the stage script, Q&A bank, fallback lines. **Read only your own role** | all |
-| `05_Hardware/` | Shopping list, shops, prices. **`Purchase_Log.md` is a form — fill it in** | S1 |
-| `06_Software/` | Our code + `README.md`, every command you type | S2 |
-| `03_Planning/` | Questions still open for Prof. Wang; the lighting/camera strategy | S3 / all |
-| `01_Competition/` | Official rules, scoring criteria, schedule | all |
-| `07_Research/` | Deep background. **Not this week.** Look-up only | — |
-| `08_Data/` · `99_Archive/` · `.venv/` | Storage and old drafts. Ignore. **Never move `.venv/`** | — |
+| `advisor/` | What Prof. Wang sent. **[Advisor_Code_Findings.md](advisor/Advisor_Code_Findings.md)** = what actually works and what's broken. **[PPTX_Translation_EN.md](advisor/PPTX_Translation_EN.md)** = her slides in English; slide 11 is the attribution slide | S2 / S3 |
+| `presentation/` | `Operation_Script_v2.docx` — the stage script, Q&A bank, fallback lines. **Read only your own role** | all |
+| `hardware/` | Shopping list, shops, prices. **`Purchase_Log.md` is a form — fill it in** | S1 |
+| `software/` | Our code + `README.md`, every command you type. `advisor_code/` is Prof. Wang's, with our fixes | S2 |
+| `reference/` | Official rules and scoring · [`Core_Strategy_Data_Quality.md`](reference/Core_Strategy_Data_Quality.md) (why the light goes to the side) · `Research_Brief.md` (**not this week**, look-up only) | all |
+| `archive/` · `.venv/` | Old drafts and the Python install. Ignore both. **Never move `.venv/`** | — |
 
 ---
 
@@ -77,7 +75,7 @@ Open these only when your page sends you there.
 
 The big files (AI weights, advisor code, videos) **cannot go on GitHub**. They go in a shared Google Drive folder. Both, not one.
 
-> 🔴 **`06_Software/advisor_code/output_dir/mscoco/mambayolo_n/weights/best.pt` is the single most valuable file we have.** 139 MB, and it only exists because Prof. Wang sent it. **Two USB sticks and a cloud folder, today.**
+> 🔴 **`software/advisor_code/output_dir/mscoco/mambayolo_n/weights/best.pt` is the single most valuable file we have.** 139 MB, and it only exists because Prof. Wang sent it. **Two USB sticks and a cloud folder, today.**
 
 ---
 

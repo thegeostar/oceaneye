@@ -1,3 +1,8 @@
+> **ARCHIVED 14 Sept 2026 — do not use.** Superseded by [README.md](../README.md) and the pages in `team/`.
+> Dates and folder links below are stale (the folders were renamed). Kept only so nothing is lost.
+
+---
+
 # START HERE — OceanEye, Group 22
 
 **Today is Sunday 13 September. The competition is Saturday 19 September. You have 6 days.**

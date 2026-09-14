@@ -1,6 +1,6 @@
 # Software — OceanEye
 
-> **← [START_HERE.md](../START_HERE.md) tells you what to do today. This page is every command you will type, in one place.**
+> **← [README.md](../README.md) tells you what to do today. This page is every command you will type, in one place.**
 >
 > **Owner:** S2 · **Open it when:** installing (Day 1), running the demo (Day 3+), or the night before the competition for the pre-flight check.
 
@@ -15,13 +15,13 @@
 
 **They are not competitors.** Hers has the model; ours has the rehearsal and recovery machinery. The plan is to run hers, with ours as the fallback that already works.
 
-🔴 **Never edit `../02_Advisor/Mamba-YOLO-main/`.** That is her original and our reference. Work in `advisor_code/`. Every change we made there is tagged — find them all with:
+🔴 **Never edit `../advisor/Mamba-YOLO-main/`.** That is her original and our reference. Work in `advisor_code/`. Every change we made there is tagged — find them all with:
 
 ```bash
 grep -rn "OceanEye:" advisor_code/
 ```
 
-📄 **What her code actually is, what was tested, what is broken → [`../02_Advisor/Advisor_Code_Findings.md`](../02_Advisor/Advisor_Code_Findings.md)**
+📄 **What her code actually is, what was tested, what is broken → [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md)**
 
 ---
 
@@ -43,7 +43,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 python -c "import torch; print(torch.__version__, torch.cuda.get_device_name(0))"
 
 # 4. Her code + the compiled operator  ← this step decides the week
-cd 06_Software/advisor_code
+cd software/advisor_code
 pip install -e . && pip install ./selective_scan
 python -c "import selective_scan_cuda_core; print('the hard part works')"
 ```
@@ -65,7 +65,7 @@ Open `proof.jpg` beside `app/static/000013_detected.jpg` — **her own output on
 python app/app.py          # then open http://localhost:8080
 ```
 
-Three tabs: Video Detection · Image Detection · Real-time Monitoring. Feed it `../../02_Advisor/Reference_Videos/video_2026-09-13_13-57-08.mp4`.
+Three tabs: Video Detection · Image Detection · Real-time Monitoring. Feed it `../../advisor/videos/video_2026-09-13_13-57-08.mp4`.
 
 > ⚠️ **Her "Real-time Monitoring" originally ignored the camera and played a hidden video file.** Fixed in our copy: it opens the camera, and a recorded fallback is opt-in and stamped `PLAYING RECORDED FOOTAGE - NOT LIVE` on screen. If you ever want it deliberately:
 > ```bash
@@ -137,7 +137,7 @@ Any flag beats the profile, so you never have to edit a file to try something:
 
 ```bash
 python oceaneye_demo.py --profile endoscope --conf 0.25 --no-enhance
-python oceaneye_demo.py --source ../08_Data/footage/run1.mp4 --headless --save-video out.mp4
+python oceaneye_demo.py --source ../software/data/footage/run1.mp4 --headless --save-video out.mp4
 ```
 
 `--source` accepts **all of these**: `0` (camera index) · `clip.mp4` · `photo.jpg` · `frames/` (a folder of images) · `rtsp://…` or `http://…` (network or phone camera) · `synthetic`.
@@ -188,12 +188,12 @@ white_balance      = 4500
 gain               = 0
 
 [model]
-path = "../08_Data/weights/best.pt"   # .pt, .onnx, .engine, or "mock"
+path = "../software/data/weights/best.pt"   # .pt, .onnx, .engine, or "mock"
 ```
 
 To support a new camera, laptop, or single-board computer: **copy a profile, change the numbers, run `--preflight`.** No code edits.
 
-> ⭐ **Every setting is read back from the driver and printed.** `set()` silently fails on a lot of UVC cameras, so "I asked for it" is not evidence. Tested on the built-in webcam here: asked for exposure 150, the driver gave 156; asked for gain 0, the floor was 1. **Copy the values it prints into [`../05_Hardware/Purchase_Log.md`](../05_Hardware/Purchase_Log.md), not the values you asked for.**
+> ⭐ **Every setting is read back from the driver and printed.** `set()` silently fails on a lot of UVC cameras, so "I asked for it" is not evidence. Tested on the built-in webcam here: asked for exposure 150, the driver gave 156; asked for gain 0, the floor was 1. **Copy the values it prints into [`../hardware/Purchase_Log.md`](../hardware/Purchase_Log.md), not the values you asked for.**
 
 On Linux the system also calls `v4l2-ctl` for the same controls, because it succeeds where OpenCV quietly does not. Missing `v4l2-ctl` is a warning, never a crash.
 
@@ -306,16 +306,16 @@ runner.run(cfg, headless=True, max_frames=300)
 Separate file, used two or three times all week and never on stage. Works the same in a terminal or in Colab (`!python train_oceaneye.py …`).
 
 ```bash
-python train_oceaneye.py prep ../08_Data/datasets/DUO             # 1. dataset -> YOLO format
-python train_oceaneye.py train ../08_Data/datasets/DUO/oceaneye.yaml   # 2. fine-tune
-python train_oceaneye.py autolabel ../08_Data/footage/run1.mp4    # 3. later, own footage
+python train_oceaneye.py prep ../software/data/datasets/DUO             # 1. dataset -> YOLO format
+python train_oceaneye.py train ../software/data/datasets/DUO/oceaneye.yaml   # 2. fine-tune
+python train_oceaneye.py autolabel ../software/data/footage/run1.mp4    # 3. later, own footage
 ```
 
 **`prep`** handles both dataset shapes you will meet: **DUO** (VOC XML → converted) and **Brackish** (Roboflow, already YOLO → class ids **remapped** by name, because Brackish's `starfish` is index 5, not 3, and the rest of its classes are fish and crabs we drop). It writes `oceaneye.yaml`, a deterministic 85/15 split, and per-species box counts.
 
 > 🔴 **`prep` always renders 5 `check_*.jpg` images with the converted labels drawn back on. Open them.** A coordinate mistake looks fine in a text file and is obvious on an image. This is the gate — everything downstream is wasted if it fails.
 
-**`train`** starts from pretrained weights (`yolov8n.pt` by default — the advisor's script claims "improved YOLOv8", and what you say on stage must match what you ran; same ultralytics API as v11, so this is not a framework switch). It reports **mAP50**, per-class mAP50, and copies `best.pt` into `08_Data/weights/`. Useful flags: `--batch 8` if you run out of memory, `--epochs 30` if you are short of time, `--device cpu` to force it.
+**`train`** starts from pretrained weights (`yolov8n.pt` by default — the advisor's script claims "improved YOLOv8", and what you say on stage must match what you ran; same ultralytics API as v11, so this is not a framework switch). It reports **mAP50**, per-class mAP50, and copies `best.pt` into `software/data/weights/`. Useful flags: `--batch 8` if you run out of memory, `--epochs 30` if you are short of time, `--device cpu` to force it.
 
 **`autolabel`** pre-labels your own tank footage with a model you already trained, keeping every 10th frame. You then *correct* the guesses in a labelling tool instead of drawing 300 boxes from scratch, and run `prep` + `train` again. Core_Strategy §5 calls this the single biggest improvement to live-demo reliability. It refuses to run on the mock detector.
 
@@ -325,7 +325,7 @@ python train_oceaneye.py autolabel ../08_Data/footage/run1.mp4    # 3. later, ow
 
 ## Before you touch the model — read this
 
-**[`../03_Planning/Core_Strategy_Data_Quality.md`](../03_Planning/Core_Strategy_Data_Quality.md) §3.8** covers locking exposure, white balance and MJPG on the camera. Do that **before** any model work. An unstable input stream makes every downstream measurement meaningless.
+**[`../reference/Core_Strategy_Data_Quality.md`](../reference/Core_Strategy_Data_Quality.md) §3.8** covers locking exposure, white balance and MJPG on the camera. Do that **before** any model work. An unstable input stream makes every downstream measurement meaningless.
 
 Two rules that will otherwise cost you silently:
 

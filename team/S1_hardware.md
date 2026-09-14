@@ -1,4 +1,4 @@
-← [START_HERE.md](../START_HERE.md)
+← [README.md](../README.md)
 
 # S1 — Hardware, tank, footage, packing
 
@@ -6,7 +6,7 @@
 
 ## What you own
 
-1. **Buying** the camera, torch, tank and props — budget ceiling **US$100 total**, log every item in [`../05_Hardware/Purchase_Log.md`](../05_Hardware/Purchase_Log.md).
+1. **Buying** the camera, torch, tank and props — budget ceiling **US$100 total**, log every item in [`../hardware/Purchase_Log.md`](../hardware/Purchase_Log.md).
 2. **Building** the tank rig and the lighting, **filming the backup video**, and packing the equipment box.
 3. **Stage minutes 00:00–06:30** — the robot and the safety lines (safety is 3 rubric points for 30 seconds of talking).
 
@@ -38,7 +38,7 @@ The listing must say one of: **"UVC"**, **"works with PC / Windows"**, **"no dri
 - [ ] Plastic toy **sea cucumber, sea urchin, scallop, starfish** — $5–15
 - [ ] **2 × USB flash drives**, 16 GB+ — $8–12
 - [ ] Powered USB extension 3–5 m $5–10 (a passive cable fails beyond ~5 m) · gravel/sand $3–6 · matte black sheet or card $2–4 · powdered clay or fine soil $1–2 · white translucent plastic for a diffuser (milk jug, baking paper) $1–2 · PVC pipe + zip ties $4–8 · towels + floor sheeting $3–5
-- [ ] **Write every item, price, shop and date in [`../05_Hardware/Purchase_Log.md`](../05_Hardware/Purchase_Log.md)** — the cost slide is 3 points. Core spend should land at **$62–96** inside the **$100** ceiling.
+- [ ] **Write every item, price, shop and date in [`../hardware/Purchase_Log.md`](../hardware/Purchase_Log.md)** — the cost slide is 3 points. Core spend should land at **$62–96** inside the **$100** ceiling.
 - [ ] **Submersion test today, not Friday:** hold the probe head in a glass of water 10 minutes, nothing valuable nearby. Check for fogging or water inside.
 - [ ] Hand the camera to S2 and confirm the laptop sees it: `python oceaneye_demo.py --source 0` (try `1` or `2` if `0` is the built-in webcam).
 
@@ -56,7 +56,7 @@ The listing must say one of: **"UVC"**, **"works with PC / Windows"**, **"no dri
 
 - [ ] **Record one perfect full run, start to finish.** This is what you play if everything dies on stage. Desktop **and** USB stick.
 - [ ] Rehearse the **turbidity ladder**: stir one spoon of clay in live, then two, then three. ⚠️ Practise the amount — too much clay and nothing is visible, which is a boring demo. Say out loud where it stops working.
-- [ ] Practise the **pre-flight checklist** out loud (it is in `04_Presentation/Operation_Script_v2.docx`): seal checked, lens wiped, floor dry, laptop on battery.
+- [ ] Practise the **pre-flight checklist** out loud (it is in `presentation/Operation_Script_v2.docx`): seal checked, lens wiped, floor dry, laptop on battery.
 - [ ] First full three-person run-through, untimed.
 
 ## Thu 17 September — pack the box, rehearse timed

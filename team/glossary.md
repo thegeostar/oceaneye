@@ -1,6 +1,6 @@
 # Word list — every technical term, in plain English
 
-← [START_HERE.md](../START_HERE.md) · **Don't read this. Search it when you get lost.**
+← [README.md](../README.md) · **Don't read this. Search it when you get lost.**
 
 ## The AI
 

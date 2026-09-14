@@ -1,6 +1,6 @@
 # Script Risk Analysis — Is the Advisor's Script Overfitted to a Previous Competition?
 
-> **← [START_HERE.md](../START_HERE.md) is the main page. This one is already actioned — the fixes are in `Operation_Script_v2.docx`, which is what you actually read and speak.**
+> **← [README.md](../README.md) is the main page. This one is already actioned — the fixes are in `Operation_Script_v2.docx`, which is what you actually read and speak.**
 >
 > **Owner:** S3 · **Open it when:** a judge (or Prof. Wang) asks *why* your script differs from hers · **You do not need this to rehearse.**
 
@@ -107,14 +107,14 @@ Present it as **Chinese marine technology adapted to Mekong freshwater aquacultu
 Every clause there is checkable. **Rehearse it until it is comfortable** — a judge who knows the field will follow up, and one who does not will still register that you know what you are running.
 
 ⚠️ **Do not overreach.** The honest boundaries:
-- **The model is not ours.** It is her group's, used with attribution. Say so in the same breath — it turns a possible criticism into 4 Professional Conduct points. → [`../02_Advisor/PPTX_Translation_EN.md`](../02_Advisor/PPTX_Translation_EN.md) slide 11.
+- **The model is not ours.** It is her group's, used with attribution. Say so in the same breath — it turns a possible criticism into 4 Professional Conduct points. → [`../advisor/PPTX_Translation_EN.md`](../advisor/PPTX_Translation_EN.md) slide 11.
 - **The gain over plain YOLOv8 is +0.018 mAP50** (0.855 → 0.873 in her table). Real, modest. Not a breakthrough.
 - **Quote 0.867** — the number in the training log we actually hold, not the 0.873 on her slide.
 
 **Three claims that are still genuinely ours:**
 
 1. **Unique counting with tracking** — ⭐ **stronger than when this was written.** Her shipped code has **no tracking at all**; its counts are per-frame, so one sea cucumber seen 100 times counts as 100. Adding tracking turns that into a real survey count. It is a demonstrable delta over what we were given, and we can show both side by side.
-2. **Measured graceful-degradation characterisation** — the turbidity ladder in `03_Planning/Core_Strategy_Data_Quality.md`. Almost nobody characterises their operating envelope. More scientifically mature than quoting an mAP.
+2. **Measured graceful-degradation characterisation** — the turbidity ladder in `reference/Core_Strategy_Data_Quality.md`. Almost nobody characterises their operating envelope. More scientifically mature than quoting an mAP.
 3. **Ultra-low-cost deployment** — a US$30 acquisition platform against a US$2,500 ROV, with measured power draw. *"Cutting-edge"* legitimately includes cost-down engineering, and it serves Cost-Effectiveness and Sustainability directly.
 
 **The honest framing, which is also the best one:** *"The detection model is state-of-the-art work from our advisor's research group, which we deploy with full attribution. Our own contribution is making it run on US$30 of hardware, measuring where it stops working, and turning its per-frame detections into real counts."*
@@ -163,7 +163,7 @@ Do **not** tell her the script is outdated. Ask questions that let her arrive th
 3. *"The rubric mentions cutting-edge technology. Should we emphasise our turbidity augmentation and low-cost deployment as the innovation, since YOLOv5/v8 are established?"*
 4. *"The format is a 20-minute operation. Should we convert parts of the script into live demonstrations rather than explanations?"*
 
-Each of these is a genuine question, gives her ownership of the answer, and gets you what you need. Add them to Section B of `03_Planning/Open_Questions.md`.
+Each of these is a genuine question, gives her ownership of the answer, and gets you what you need. Add them to Section B of `presentation/Open_Questions.md`.
 
 ---
 

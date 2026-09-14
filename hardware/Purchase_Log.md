@@ -1,6 +1,6 @@
 # Purchase Log
 
-> **← [START_HERE.md](../START_HERE.md) is the main page. This is a form — you fill it in, you don't read it.**
+> **← [README.md](../README.md) is the main page. This is a form — you fill it in, you don't read it.**
 >
 > **Owner:** S1 · **Open it when:** you buy something, or the camera arrives · **What to buy:** [Hardware_Plan.md](Hardware_Plan.md).
 

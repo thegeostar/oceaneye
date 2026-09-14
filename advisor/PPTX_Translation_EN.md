@@ -1,6 +1,6 @@
 # Prof. Wang's PowerPoint — full English translation
 
-> **← Back to [START_HERE.md](../START_HERE.md)**
+> **← Back to [README.md](../README.md)**
 >
 > **Owner:** S3 · **Open it when:** you need to know what her slides actually say, or you are writing the attribution slide.
 >

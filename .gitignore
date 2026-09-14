@@ -1,5 +1,5 @@
 # --- Too big for GitHub (100 MB hard limit per file) ---
-# These live in the shared Google Drive folder instead. See START_HERE.md.
+# These live in the shared Google Drive folder instead. See README.md.
 *.pt
 *.onnx
 *.so
@@ -8,11 +8,11 @@
 *.mp4
 *.avi
 *.mov
-06_Software/advisor_code/
-02_Advisor/Reference_Videos/
-08_Data/footage/
-08_Data/weights/
-08_Data/datasets/
+software/advisor_code/
+advisor/videos/
+software/data/footage/
+software/data/weights/
+software/data/datasets/
 
 # --- Python ---
 .venv/

@@ -14,7 +14,7 @@
 
 > ## 🛑 Do not read this file this week
 >
-> **← [START_HERE.md](../START_HERE.md) is all you need before 19 September.** This is 1,000 lines of background. Reading it will cost you a day you do not have.
+> **← [README.md](../README.md) is all you need before 19 September.** This is 1,000 lines of background. Reading it will cost you a day you do not have.
 >
 > **Owner:** S2 · **Open it when:** you need to *look one thing up*, not to study · **Use the jump table below. Never read it top to bottom.**
 
@@ -32,7 +32,7 @@
 | Our innovation angle — physics-informed turbidity | [Angle 1](#-angle-1--physics-informed-synthetic-turbidity-train-for-the-tonle-sap-without-diving-into-it) |
 | **What NOT to do** *(possibly the most useful page here)* | [§4.1](#41-what-not-to-do-this-list-may-be-the-most-valuable-page-here) |
 | The IP / attribution slide — 4 easy points | [§5.3](#53-your-ip--attribution-slide-draft-it-now--4-easy-points) |
-| A word I don't understand | [Word list in START_HERE.md](../START_HERE.md#-word-list--every-technical-term-in-plain-english) *(shorter and in plain English)* |
+| A word I don't understand | [Word list in README.md](../README.md#-word-list--every-technical-term-in-plain-english) *(shorter and in plain English)* |
 
 ---
 
@@ -51,7 +51,7 @@ On the evening of 11 September, Prof. Wang Li sent the team an operation script,
 > | "Assume no GPU, use Colab" | ❌ **RTX 5060 confirmed in this laptop** |
 > | Dataset download links (Part 1.1) | ⚠️ Reference only — do not download |
 >
-> **Read instead:** [`../02_Advisor/Advisor_Code_Findings.md`](../02_Advisor/Advisor_Code_Findings.md) and [`../02_Advisor/PPTX_Translation_EN.md`](../02_Advisor/PPTX_Translation_EN.md).
+> **Read instead:** [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md) and [`../advisor/PPTX_Translation_EN.md`](../advisor/PPTX_Translation_EN.md).
 >
 > **Still genuinely useful here — the reason this file was kept rather than deleted:**
 > - **§2.6** why underwater vision is hard — best source for the *Task Difficulty* argument (15 pts)

@@ -1,6 +1,6 @@
 # If it breaks on stage — PRINT THIS
 
-← [START_HERE.md](../START_HERE.md)
+← [README.md](../README.md)
 
 **Three rules. Memorise these, not the table.**
 

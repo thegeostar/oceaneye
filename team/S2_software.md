@@ -1,6 +1,6 @@
 # S2 — Software
 
-← [START_HERE.md](../START_HERE.md) · full detail: [`../02_Advisor/Advisor_Code_Findings.md`](../02_Advisor/Advisor_Code_Findings.md) · every command: [`../06_Software/README.md`](../06_Software/README.md)
+← [README.md](../README.md) · full detail: [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md) · every command: [`../software/README.md`](../software/README.md)
 
 **You own:** making Prof. Wang's AI run, camera → AI, what the judges see on screen, and the backups.
 **On stage:** minutes **06:30 – 13:00** — the AI section.
@@ -43,7 +43,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 python -c "import torch; print(torch.__version__, torch.cuda.get_device_name(0))"
 
 # 4. Her code + the compiled GPU piece  ← THIS STEP DECIDES THE WEEK
-cd 06_Software/advisor_code
+cd software/advisor_code
 pip install -e . && pip install ./selective_scan
 python -c "import selective_scan_cuda_core; print('the hard part works')"
 ```
@@ -77,11 +77,11 @@ Class order the model outputs, memorise it: **`0 holothurian` (sea cucumber) · 
 - [ ] Back up `best.pt` ×3 (laptop, USB, cloud) — **first thing, before any install**
 - [ ] Install steps 1–4 above
 - [ ] Run the verification. `proof.jpg` matches her `000013_detected.jpg` → say so in the chat immediately
-- [ ] Then her web app: `python app/app.py` → `http://localhost:8080` → **Video Detection** → `../../02_Advisor/Reference_Videos/video_2026-09-13_13-57-08.mp4`
+- [ ] Then her web app: `python app/app.py` → `http://localhost:8080` → **Video Detection** → `../../advisor/videos/video_2026-09-13_13-57-08.mp4`
 - [ ] Write down **mAP50 = 0.867** *(a 0-to-1 accuracy score)* — from her own `results.csv`, epoch 135, a file we hold
 
 **Tue 15 — camera → AI · ⏰ decisions day**
-- [ ] **Lock the camera settings before any AI work** — exposure, white balance, gain, and force MJPG *(a compressed format; without it many USB cameras crawl at ~5 fps)*. Check ≥25 fps. Copy the numbers the driver **reports back** into `../05_Hardware/Purchase_Log.md`, not the ones you asked for
+- [ ] **Lock the camera settings before any AI work** — exposure, white balance, gain, and force MJPG *(a compressed format; without it many USB cameras crawl at ~5 fps)*. Check ≥25 fps. Copy the numbers the driver **reports back** into `../hardware/Purchase_Log.md`, not the ones you asked for
 - [ ] Live stream end to end: video in, boxes out, per-species counts and FPS on screen
 - [ ] ⏰ **14:00** — camera not working? Switch to recorded video permanently and never look back
 - [ ] ⏰ **End of day** — the hard cutoff below

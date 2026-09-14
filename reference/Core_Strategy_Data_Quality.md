@@ -1,8 +1,8 @@
 # Core Strategy — Data Capture Quality as the Primary Design Constraint
 
-> **← [START_HERE.md](../START_HERE.md) tells you what to do. This page is *why*. It is the reasoning behind most of the decisions on that page.**
+> **← [README.md](../README.md) tells you what to do. This page is *why*. It is the reasoning behind most of the decisions on that page.**
 >
-> **Owner:** all three · **Open it when:** you are about to make a hardware or software choice and want to know which option is right · **Read once, properly.** Then use START_HERE for daily work.
+> **Owner:** all three · **Open it when:** you are about to make a hardware or software choice and want to know which option is right · **Read once, properly.** Then use the README for daily work.
 
 ## 🏃 The whole document in 6 lines
 
@@ -132,7 +132,7 @@ v4l2-ctl -d /dev/video0 -c auto_exposure=1 -c exposure_time_absolute=150 \
                         -c white_balance_automatic=0 -c gain=0
 ```
 
-> **Record the exact settings that worked in `05_Hardware/Purchase_Log.md`.** Reproducing them on competition day is worth real points, and rediscovering them under pressure is a nightmare.
+> **Record the exact settings that worked in `hardware/Purchase_Log.md`.** Reproducing them on competition day is worth real points, and rediscovering them under pressure is a nightmare.
 
 **9. Prefer light over gain.** If the image is dark, add illumination — never raise gain/ISO. Gain multiplies noise, and noise is what destroys small-target detection.
 
@@ -140,7 +140,7 @@ v4l2-ctl -d /dev/video0 -c auto_exposure=1 -c exposure_time_absolute=150 \
 
 ## 4. Software: enhancement, and the trap inside it
 
-Enhancement code already exists in `06_Software/oceaneye/vision.py`: gray-world white balance, then CLAHE on the LAB lightness channel. That order is deliberate — correct colour first, then contrast, or you amplify the cast before removing it.
+Enhancement code already exists in `software/oceaneye/vision.py`: gray-world white balance, then CLAHE on the LAB lightness channel. That order is deliberate — correct colour first, then contrast, or you amplify the cast before removing it.
 
 > ### ⚠️ The trap that will silently cost you accuracy
 > **Whatever preprocessing you apply at inference, you must also apply during training.**
