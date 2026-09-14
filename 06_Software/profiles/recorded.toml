@@ -1,0 +1,22 @@
+# recorded.toml - Tier 0: play recorded footage instead of a live camera.
+# This is the fallback plan if the camera never arrives, and it is also how the
+# backup video gets rehearsed. Same code path, same screen, no hardware.
+#
+#   python oceaneye_demo.py --profile recorded --source ../08_Data/footage/run1.mp4
+
+[capture]
+source = "../08_Data/footage/backup_full_run.mp4"
+fps    = 25
+
+[model]
+path  = "../08_Data/weights/best.pt"
+conf  = 0.35
+track = true
+
+[display]
+enhance   = true
+hud_scale = 1.2
+
+[session]
+outdir = "runs"
+log = true

@@ -1,0 +1,25 @@
+Texts from advisor Wang Li
+- "This project focuses on using underwater robots and artificial intelligence vision technologies to achieve automatic detection and recognition of underwater biological targets.
+
+
+At the same time, the English operation script for the competition presentation has been prepared and will be shared with you. Please read the script carefully and become familiar with your assigned role.
+
+The three roles include:
+
+1.Underwater Robot Operation
+Responsible for robot setup, image acquisition, and system introduction.
+2.AI Algorithm Demonstration
+Responsible for running the detection model and showing biological target recognition results.
+3.Result Analysis and Application Presentation
+Responsible for explaining detection results and application scenarios."
+- "The videos mainly introduce:
+
+How to operate the underwater robot;
+How to collect underwater images and videos;
+How to run the AI detection system;
+How to display and explain the detection results."
+- "If you are truly interested in joining OceanEye, let’s devote ourselves fully to this project and work together for the best results. If you have any questions, we can always communicate and discuss them in the group."
+
+- "You will need to install the Mamba library in Python today to ensure the algorithm runs accurately."
+
+- "This is the code of our target detection algorithm. It can work normally after your environment is configured."

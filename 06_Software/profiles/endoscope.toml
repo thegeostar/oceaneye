@@ -1,0 +1,47 @@
+# endoscope.toml - the real rig: waterproof UVC USB camera in the tank.
+#
+# Fill in the numbers you actually measured. Copy them from
+# 05_Hardware/Purchase_Log.md, and copy any you change back into it.
+#
+#   python oceaneye_demo.py --profile endoscope
+
+[capture]
+source  = "0"          # find yours with: python oceaneye_demo.py --list-cameras
+width   = 1280
+height  = 720
+fps     = 30
+fourcc  = "MJPG"       # without this many UVC cameras crawl at ~5 fps
+backend = "v4l2"       # Linux. Use "auto" on Windows or macOS.
+flip    = ""           # "h", "v" or "hv" if the camera is mounted rotated
+warmup_frames = 10
+
+[capture.controls]
+# Locked, not automatic. Auto exposure and auto white balance drift between
+# frames, which makes detections flicker and makes runs unrepeatable.
+# Tune by eye once, write the numbers down, then never touch them again.
+auto_exposure      = false
+exposure           = 150
+auto_white_balance = false
+white_balance      = 4500
+gain               = 0      # gain adds noise - add light instead
+
+[model]
+path  = "../08_Data/weights/best.pt"
+conf  = 0.35
+imgsz = 640
+device = ""            # "" auto · "cpu" · "cuda:0"
+track = true
+classes = ["holothurian", "echinus", "scallop", "starfish"]
+
+[display]
+enhance   = true
+hud_scale = 1.2        # bigger text - the judges are looking at a projector
+window    = "OceanEye - Group 22 - RUPP"
+
+[session]
+outdir = "runs"
+log = true
+
+[fallback]
+# The 'b' key switches to this instantly if the camera dies on stage.
+backup_video = "../08_Data/footage/backup_full_run.mp4"

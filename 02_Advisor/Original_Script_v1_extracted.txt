@@ -1,0 +1,99 @@
+OceanEye-AI Vision-driven Underwater Robot Intelligent Biological
+Detection System
+
+【学生 1：水下机器人操作与数据采集】
+
+Our project is called:
+“OceanEye — AI Vision-driven Underwater Robot Intelligent Biological Detection
+System.”
+
+With the rapid development of artificial intelligence and marine technology, underwater
+intelligent perception has become increasingly important in marine monitoring,
+ecological protection, and underwater exploration.
+
+However, underwater environments are very complex. Due to light absorption and
+scattering, underwater images usually suffer from color distortion, low contrast, blurred
+edges, and unclear biological targets.
+
+Therefore, our project combines an underwater robot platform with artificial intelligence
+technology to achieve intelligent underwater biological detection.
+
+This is our underwater robot platform.
+
+The robot integrates underwater cameras, motion control modules, communication
+modules, and image acquisition systems.
+
+During operation, the robot can move underwater and collect real-time visual information.
+
+The complete workflow is:
+Underwater robot image acquisition → AI image processing → Target detection →
+Result analysis
+
+Through this process, the system can automatically discover and recognize underwater
+biological targets.
+
+Next, my teammate will demonstrate how our AI algorithm processes underwater images
+and performs target detection.
+
+
+【学生 2：AI 视觉算法运行与目标检测】
+
+Hello everyone.
+
+I will introduce the artificial intelligence part of our system.
+The main challenge of underwater biological detection is that targets usually have small
+sizes, similar backgrounds, unclear boundaries, and complex underwater environments.
+
+For example, sea cucumbers, sea urchins, scallops and starfish are often difficult to
+identify.
+
+To solve these problems, we use a deep learning-based object detection algorithm.
+
+This is the original underwater image collected by the robot.
+
+After AI processing, the system can automatically detect biological targets.
+
+The detection results include target category, confidence score, and location information.
+
+Our detection algorithm is based on an improved YOLOv8 model.
+
+We introduce attention enhancement, global feature modeling and multi-scale feature
+fusion technologies.
+
+These improvements allow the system to achieve more accurate and stable detection
+results in complex underwater environments.
+
+When the underwater robot moves, the AI system can continuously analyze the video
+stream and detect biological targets automatically.
+
+
+【学生 3：检测结果分析与应用展示】
+
+Hello everyone.
+
+I will introduce the detection results and application value of our system.
+
+After processing by the AI detection model, the system can obtain detailed information
+about underwater biological targets.
+
+The output includes object category, target location, and detection confidence.
+
+Compared with traditional underwater inspection methods, our intelligent system
+improves detection efficiency and reduces manual observation workload.
+
+Our system can be applied in marine ecological monitoring, underwater robot inspection,
+and intelligent marine platforms.
+
+The robot can identify underwater organisms, support marine resource investigation, and
+assist underwater exploration.
+In summary, our project integrates underwater robots, computer vision, and artificial
+intelligence algorithms.
+
+It realizes the complete process from underwater image acquisition to intelligent
+biological target recognition.
+
+Through AI technology, we hope to make underwater exploration more intelligent,
+efficient, and reliable.
+
+Thank you for your attention.
+

@@ -1,0 +1,32 @@
+# --- Too big for GitHub (100 MB hard limit per file) ---
+# These live in the shared Google Drive folder instead. See START_HERE.md.
+*.pt
+*.onnx
+*.so
+*.o
+*.zip
+*.mp4
+*.avi
+*.mov
+06_Software/advisor_code/
+02_Advisor/Reference_Videos/
+08_Data/footage/
+08_Data/weights/
+08_Data/datasets/
+
+# --- Python ---
+.venv/
+.venv311/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# --- Junk ---
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+flask_session/
+runs/
+proof.jpg
