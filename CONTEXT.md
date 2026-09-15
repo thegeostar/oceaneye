@@ -122,7 +122,45 @@ Full operating detail: **[software/advisor_code/HOW_TO_RUN.md](software/advisor_
 
 ---
 
-## 7. Rules for a fresh session
+## 7. The four-day plan
+
+Ordered by *what is unrecoverable if skipped*, not by size. ★ = found by adversarial review 15 Sept, not in the original plan.
+
+### Tue 15 — only the things that cannot be done later
+1. **Email the organiser.** Submission deadline? Power sockets and plug type? **Projector resolution and input?** Is a water tank permitted? How long to set up? — Every one of these is answerable today and unanswerable on Sunday.
+2. **Send the permission message** ([team/S3_presentation.md](team/S3_presentation.md) §1) — and ★ **fix the fallback rule now, in writing: if no reply by Thursday noon, we present the model as a third-party component under evaluation and demo no proprietary internals.** Decide it cold, not on stage.
+3. **Buy the camera.** Last unbought item; shipping is the binding constraint.
+4. **Back up `best.pt` ×3** — laptop, USB, cloud.
+
+### Wed 16 — FEATURE FREEZE at end of day
+5. ★ **Run the whole demo at 1024×768.** It is being built on a 1920px laptop and shown on a venue projector. If the labels become a grey smear three metres back, the 15 Task Difficulty points are invisible — judges do not award what they cannot see. Fix font and box thickness, not the model.
+6. ★ **Pre-measure the clay into a sealed marked bottle.** Clouding the tank is a one-way door: you get *one* attempt and cannot rehearse what follows it. A fixed dose makes rehearsal and the live run the same experiment.
+7. ★ Rehearse the **full enhancement A/B**: clear+off, clear+on, turbid+off, turbid+on. Own the control condition before a judge asks for it.
+8. ★ **Rename the on-screen `Count` to `Detections in this frame`.** One line. It turns a false measurement claim into a true one without building a tracker.
+9. ★ **Strike through FSCIN and the two missing modules on the advisor's architecture slide**, marked "not implemented in this build". The diagram becomes the disclosure.
+10. Write the **one-page printed leave-behind** for the judges — policy, cost, sustainability, IP. Those lines are text-scoreable, so hand them over to be read in parallel and spend all 20 spoken minutes on the tank.
+11. ★ A **demo-mode checklist**: airplane mode, do-not-disturb, disable sleep and screensaver, lock the resolution. The OS betrays you at minute 14, never in a three-minute test.
+
+### Thu 17 — rehearse the failures, not the happy path
+12. ★ **Drop a plastic spoon into the tank on purpose.** The model has four classes and **no reject class** — it will label it confidently. Rehearse the line: *"closed-set detector, no background class — that is a known limitation and it is on our slide."* Have the limitation slide.
+13. ★ **Separate the driver from the speaker.** Whoever talks must not touch the keyboard, or every hand-off is 15 seconds of dead air, three times.
+14. ★ **Split subsystem ownership** — camera, model, web app — one owner each, able to survive three follow-ups. A judge who asks the quiet one a question is testing Teamwork (10 pts, scored purely by watching).
+15. ★ **One rehearsal on battery with the charger locked away.** If it survives setup + 20 minutes unplugged, the venue power unknown disappears entirely.
+16. Cold boot, **Wi-Fi off**, full run.
+
+### Fri 18 — frozen and boring
+17. Tag a known-good commit. **No changes after the last full rehearsal** — every one invalidates it.
+18. Two USBs + cloud. Slides as PDF *and* PPTX.
+19. ★ **Pack one crate in reverse-use order and time the setup cold**, sealed crate to first inference. Setup is the only part never practised, and judges are already watching.
+20. ★ The teamwork clock **starts when you enter the room and stops when the last cable is coiled.** Most teams go silent and scatter during exactly the minutes that are still being observed.
+
+**Deliberately not doing:** a side-by-side 2.3 s vs 1.12 s speed race (needs the old code path back under a freeze), an on-screen segment timer (a printed card does it), a hot-spare second app instance (4 GB extra VRAM on an 8 GB card risks OOM in the thing it protects), object tracking (no time — say so instead).
+
+**One open licence question worth ten minutes:** Ultralytics YOLOv8 is **AGPL-3.0**, and AGPL §13 attaches to *network interaction*, not file distribution. A Flask app reachable on the venue LAN may trigger it. Cheapest fix: bind to `127.0.0.1` and say you did, or add a `LICENSES/` folder and an offer-of-source line in the footer.
+
+---
+
+## 8. Rules for a fresh session
 
 **Do:** tie every recommendation to a rubric category · assume AI beginners, explain terms once · prefer the cheap offline rehearsable option · give a recommendation, not a menu · update an existing file rather than creating a new one.
 
