@@ -213,3 +213,24 @@ exactly. It trades throughput for portability."*
 
 That is a genuinely strong answer. It is real engineering work, it is honest, and it shows
 you understood the model rather than just running it.
+
+### Making it faster — the plan, not yet done
+
+At `chunk=8` the largest block runs a **Python loop of 800 steps**, each launching tiny GPU
+operations. The GPU spends most of that time idle, waiting for Python. Three fixes, in order
+of payoff:
+
+| Fix | Expected | Risk |
+|---|---|---|
+| **Two-level parallel scan** — do all 800 chunks in one batched matmul, then a short carry pass over chunks only | 5–15× | Medium |
+| **`torch.compile`** on the scan — fuses the small ops, cuts launch overhead | 2–3× | Low |
+| **Lower input size** 640 → 416 or 320 | 2–4× | Costs some accuracy |
+
+Realistic target **0.2–0.5 s/frame (2–5 fps)**. Not 30 fps — plan around the real number.
+
+Whatever changes, the acceptance test never changes: `python verify_model.py` must still print
+`starfish 0.83` and `holothurian 0.78`. If it doesn't, the optimisation is wrong — revert it.
+
+> **Nothing in the rubric rewards frames per second.** It rewards *"smooth and precise
+> operations"*. A calm 3 fps feed with live boxes reads as live to a judge; a stuttering
+> 15 fps one does not. Speed is an upgrade, not a rescue — the demo already works.
