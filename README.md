@@ -1,7 +1,7 @@
 # OceanEye — Group 22
 
-**Competition: Sunday 20 – Tuesday 22 September 2026.** *(Moved from 19–21.)*
-**Today is Monday 14 September.** Five working days: Mon 14 → Fri 18. Sat 19 travels.
+**Competition: Sunday 20 – Tuesday 22 September 2026.**
+**Today is Tuesday 15 September.** Four working days: Tue 15 → Fri 18. Sat 19 travels.
 
 ---
 
@@ -11,7 +11,7 @@
 |---|---|---|
 | **S1** | **[team/S1_hardware.md](team/S1_hardware.md)** | Camera, tank, lighting, filming, packing. Stage 00:00–06:30 |
 | **S2** | **[team/S2_software.md](team/S2_software.md)** | Making the AI run, camera→AI, backups. Stage 06:30–13:00 |
-| **S3** | **[team/S3_presentation.md](team/S3_presentation.md)** | Slides, attribution, Prof. Wang, the story. Stage 13:00–20:00 |
+| **S3** | **[team/S3_presentation.md](team/S3_presentation.md)** | Slides, attribution, the story. Stage 13:00–20:00 |
 
 Each one is a single page with dated checkboxes. **Nobody reads everything.**
 
@@ -33,23 +33,23 @@ Two more, for everyone:
 
 ---
 
-## Today's one thing each
+## Where the project stands
 
-| | Do this before anything else today |
-|---|---|
-| **S1** | **Buy the camera.** Nothing has been bought yet. Shipping time is what kills us, not money. |
-| **S2** | **Get `best.pt` to draw one correct box on one image.** Nothing is installed yet. This decides the week. |
-| **S3** | **Message Prof. Wang** for written permission to use her model and video publicly. |
+✅ **The model runs.** 1.12 s per image, live camera smooth at ~26 fps, UI fully English. It reproduces the authors' own published detections byte for byte. → [HOW_TO_RUN.md](software/advisor_code/HOW_TO_RUN.md)
+
+🔴 **The advisor's deck claims more than we can run.** It presents a two-stage system (FSCIN restoration → improved YOLOv8). We have one stage, and only one of its three modules. **We demo what runs and credit the rest to the authors.** Read this before writing any slide: [advisor/Advisor_Code_Findings.md](advisor/Advisor_Code_Findings.md) §3.
+
+⏳ Camera not confirmed bought · written permission to use the model not yet in hand.
 
 ---
 
 ## The 5 rules
 
-1. **Never wait for Prof. Wang.** Ask, then keep working. Adjust when she answers.
-2. **Never let hardware block software.** `python oceaneye_demo.py --profile desk` runs the whole system with no camera and no model.
-3. **Nothing new after Wednesday 16th.** Feature freeze. "What if we also added…" → no, write it on an after-the-competition list.
-4. **Do NOT make the scene easy.** Clean footage of *deliberately murky* water. Difficulty is worth 15 points — don't throw it away by using clear water.
-5. **Never say a number you haven't measured.** One follow-up question exposes a bluff, and honesty is scored directly.
+1. **Never wait for the advisor.** Ask, then keep working. Adjust when she answers.
+2. **Nothing new after Wednesday 16th.** Feature freeze. "What if we also added…" → write it on an after-the-competition list.
+3. **Do NOT make the scene easy.** Clean footage of *deliberately murky* water. Difficulty is worth 15 points — don't throw it away by using clear water.
+4. **Never say a number you haven't measured.** One follow-up question exposes a bluff, and honesty is scored directly.
+5. **Never present someone else's result as ours.** The model is Li Kaixuan's, supervised by Prof. Wang Li. Respect for IP is an explicit 4-point item — and saying so out loud *earns* those points.
 
 ---
 
@@ -59,23 +59,22 @@ Open these only when your page sends you there.
 
 | Folder | What's in it | Whose |
 |---|---|---|
-| `advisor/` | What Prof. Wang sent. **[Advisor_Code_Findings.md](advisor/Advisor_Code_Findings.md)** = what actually works and what's broken. **[PPTX_Translation_EN.md](advisor/PPTX_Translation_EN.md)** = her slides in English; slide 11 is the attribution slide | S2 / S3 |
-| `presentation/` | `Operation_Script_v2.docx` — the stage script, Q&A bank, fallback lines. **Read only your own role** | all |
+| `advisor/` | **[Advisor_Code_Findings.md](advisor/Advisor_Code_Findings.md)** = what runs, what doesn't, which numbers we may quote. `OceanEye-Cambodia-Report.pdf` = the bilingual 18-slide deck. The thesis PDF = the method behind it | S2 / S3 |
+| `presentation/` | `Operation_Script_v2.docx` — stage script, Q&A bank, fallback lines. **Read only your own role** | all |
 | `hardware/` | Shopping list, shops, prices. **`Purchase_Log.md` is a form — fill it in** | S1 |
-| `software/` | Our code + `README.md`. Prof. Wang's model lives in `advisor_code/` — **[HOW_TO_RUN.md](software/advisor_code/HOW_TO_RUN.md)** is the only page you need for it | S2 |
+| `software/` | **[advisor_code/HOW_TO_RUN.md](software/advisor_code/HOW_TO_RUN.md)** is the only page you need | S2 |
 | `reference/` | Official rules and scoring · [`Core_Strategy_Data_Quality.md`](reference/Core_Strategy_Data_Quality.md) (why the light goes to the side) · `Research_Brief.md` (**not this week**, look-up only) | all |
-| `archive/` · `.venv/` | Old drafts and the Python install. Ignore both. **Never move `.venv/`** | — |
+| `CONTEXT.md` | For starting a new AI chat, not for humans | — |
 
 ---
 
 ## Sharing this folder
 
-`git` + a private GitHub repo — step by step, assuming you've never used it:
-**[team/github_setup.md](team/github_setup.md)**
+`git` + a private GitHub repo, step by step: **[team/github_setup.md](team/github_setup.md)**
 
-The big files (AI weights, advisor code, videos) **cannot go on GitHub**. They go in a shared Google Drive folder. Both, not one.
+The big files (AI weights, advisor code, videos) **cannot go on GitHub.** They go in a shared Google Drive folder. Both, not one.
 
-> 🔴 **`software/advisor_code/output_dir/mscoco/mambayolo_n/weights/best.pt` is the single most valuable file we have.** 139 MB, and it only exists because Prof. Wang sent it. **Two USB sticks and a cloud folder, today.**
+> 🔴 **`software/advisor_code/output_dir/mscoco/mambayolo_n/weights/best.pt` is the single most valuable file we have.** 139 MB, and it only exists because the advisor sent it. **Two USB sticks and a cloud folder, today.**
 
 ---
 

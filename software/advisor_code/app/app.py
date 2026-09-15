@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify, send_file, render_template, session, url_for, Response
+from flask import Flask, request, jsonify, render_template, session, url_for, Response
 from flask_session import Session
 import os
-import cv2
 
 # supporting modules
 from werkzeug.utils import secure_filename
 import predict_img
+import predict_video  # imported as a module so /enhance can flip its ENHANCE flag
 from predict_video import run_video_processing
 from predict_camera import run_camera_processing  # camera handler
 
@@ -29,7 +29,6 @@ Session(app)
 
 # path of the most recently uploaded video
 global_last_uploaded_video_path = None
-roi_points = None
 
 # home page
 @app.route('/')
@@ -83,6 +82,8 @@ def reset_password():
     return jsonify({'success': True})
 
 # render the login page
+# Looks redundant with login() above, which already renders this on GET — but it is a named
+# endpoint: register.html and reset_password.html both link via url_for('login_page').
 @app.route('/login', methods=['GET'])
 def login_page():
     return render_template('login.html')
@@ -123,9 +124,15 @@ def upload_image():
     file.save(file_path)
 
     # run detection on it
-    output_path = predict_img.detect(file_path)
-    # URL of the annotated image
-    output_url = url_for('static', filename=os.path.basename(output_path), _external=True)
+    # OceanEye: an undecodable upload (HEIC, a renamed .txt) used to reach the model as
+    # None and raise, which the page showed as nothing happening at all. Report it instead.
+    try:
+        output_path = predict_img.detect(file_path)
+    except Exception as exc:
+        return jsonify({'error': str(exc)})
+    # URL of the annotated image, wherever under static/ detect() chose to put it
+    output_url = url_for('static', filename=os.path.relpath(output_path, static_dir),
+                         _external=True)
     # return that URL
     return jsonify({'url': output_url})
 
@@ -161,13 +168,12 @@ def video_feed():
         mimetype='multipart/x-mixed-replace; boundary=frame'
     )
 
-# set the region of interest
-@app.route('/set_roi', methods=['POST'])
-def set_roi():
-    global roi_points
-    data = request.get_json()
-    roi_points = data.get('roi')
-    return jsonify({'message': 'ROI set successfully'})
+# contrast enhancement on/off — the before/after moment when the water is stirred up
+@app.route('/enhance', methods=['POST'])
+def toggle_enhance():
+    # set on the module, not on an imported name, or enhance() would not see it
+    predict_video.ENHANCE = not predict_video.ENHANCE
+    return jsonify({'enhance': predict_video.ENHANCE})
 
 @app.route('/camera_feed')
 def camera_feed():
@@ -183,29 +189,9 @@ def camera_feed():
         run_camera_processing(camera_index),  # pass the camera index through
         mimetype='multipart/x-mixed-replace; boundary=frame'
     )
-'''
-@app.route('/camera_feed')
-def camera_feed():
-    """Video stream route."""
-    # camera argument: either a numeric index or an RTSP URL
-    camera_source = request.args.get(
-        'camera_index', 
-)
-    
-    # work out which one it is
-    if isinstance(camera_source, str) and camera_source.isdigit():
-        camera_source = int(camera_source)
-    elif camera_source.startswith("rtsp://"):
-        pass  # use the RTSP URL as-is
-    else:
-        return jsonify({"error": "Invalid camera source"}), 400
-    
-    # hand off to the camera handler
-    return Response(
-        run_camera_processing(camera_source),
-        mimetype='multipart/x-mixed-replace; boundary=frame'
-    )
-'''
 # run the app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    # OceanEye: debug=True turns on the auto-reloader, which restarts the server when any
+    # file under it changes — mid-demo that means a 139 MB checkpoint reloading on stage.
+    # It also imports torch twice at startup. Off for the demo; errors still print here.
+    app.run(host='0.0.0.0', port=8080)

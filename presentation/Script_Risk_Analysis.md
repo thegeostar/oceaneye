@@ -107,8 +107,8 @@ Present it as **Chinese marine technology adapted to Mekong freshwater aquacultu
 Every clause there is checkable. **Rehearse it until it is comfortable** — a judge who knows the field will follow up, and one who does not will still register that you know what you are running.
 
 ⚠️ **Do not overreach.** The honest boundaries:
-- **The model is not ours.** It is her group's, used with attribution. Say so in the same breath — it turns a possible criticism into 4 Professional Conduct points. → [`../advisor/PPTX_Translation_EN.md`](../advisor/PPTX_Translation_EN.md) slide 11.
-- **The gain over plain YOLOv8 is +0.018 mAP50** (0.855 → 0.873 in her table). Real, modest. Not a breakthrough.
+- **The model is not ours.** It is Li Kaixuan's, supervised by Prof. Wang Li, used with attribution. Say so in the same breath — it turns a possible criticism into 4 Professional Conduct points. → [`../team/S3_presentation.md`](../team/S3_presentation.md) §2 is the slide, ready to paste.
+- **The gain over plain YOLOv8 is +0.018 mAP50** (0.855 → 0.873 in their table) — **and that is for their full three-module model, which we do not have.** Ours measures 0.867. Real, modest, not a breakthrough, and not entirely ours to quote. → [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md) §3.
 - **Quote 0.867** — the number in the training log we actually hold, not the 0.873 on her slide.
 
 **Three claims that are still genuinely ours:**

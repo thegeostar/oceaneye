@@ -72,7 +72,7 @@ print("frame:", ok, frame.shape if ok else None)
 cv2.imwrite("probe_test.jpg", frame)
 ```
 
-If that prints a shape, you are done — plug it into `oceaneye_demo.py --source 0` and the whole pipeline works.
+If that prints a shape, you are done — give that camera index to S2 for the app's Real-time Monitoring tab and the whole pipeline works.
 
 > **On Linux, check it enumerates:** `v4l2-ctl --list-devices`. If the camera appears but OpenCV won't open it, try `cv2.VideoCapture(0, cv2.CAP_V4L2)`.
 
@@ -199,7 +199,7 @@ Add **movement** so "robot operation" is more literal:
 
 ## Tier 0 — the fallback if nothing arrives in time
 
-Pre-recorded footage only. Your `oceaneye_demo.py` runs on a video file exactly as it runs on a camera.
+Pre-recorded footage only. The app's **Video Detection** tab runs on an uploaded file exactly as the camera tab runs on a camera — same model, same boxes. Say *"this is our recorded survey footage"* and nothing is lost but the live moment.
 
 **Sources:** her reference videos, public underwater footage, DUO/Brackish dataset images played as a sequence, or footage you shoot with a phone in a waterproof bag.
 

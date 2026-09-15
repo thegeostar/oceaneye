@@ -24,7 +24,7 @@ import time
 
 import cv2
 
-from predict_video import draw_texts, load_model
+from predict_video import draw_texts, enhance, load_model
 
 # Set this to a video file to allow a fallback when no camera opens. Unset = no fallback,
 # which is the honest default: a failed camera should look failed, not look live.
@@ -59,8 +59,12 @@ def _overlay(frame, detections):
 
 
 def _detect(model, frame):
-    """Run the model once and flatten the result into plain tuples."""
-    result = model.predict(frame, verbose=False)[0]
+    """Run the model once and flatten the result into plain tuples.
+
+    The enhancement applies to what the MODEL sees, not to what the browser sees —
+    the operator should watch the real murky water and the boxes appear on top of it.
+    """
+    result = model.predict(enhance(frame), verbose=False)[0]
     if result.boxes is None:
         return []
     return [(int(x1), int(y1), int(x2), int(y2), result.names[int(cls)], float(conf))

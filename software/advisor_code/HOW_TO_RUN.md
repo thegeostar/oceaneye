@@ -129,13 +129,33 @@ Open **http://localhost:8080** in your browser.
 - **Image Detection** — upload a photo, get boxes back. Start here.
 - **Video Detection** — upload an `.mp4`. Try `app/upload/URPC_test_video.mp4` (her real
   underwater footage) or `../../advisor/videos/video_2026-09-13_13-57-08.mp4`.
-- **Real-time Monitoring** — the camera tab. See section 5.
+- **Real-time Monitoring** — the camera tab. See section 5. It also carries the
+  **Enhancement** button: contrast enhancement on what the model sees, **default off**.
+  It costs detections in clear water and rescues them in murky water — run
+  `python bench_enhance.py` for the measured table. That button is the clay demo.
 
 Photos to test with, already in `app/upload/`:
 `000013.jpg` · `003045.jpg` · `test_000080.jpg` · `test_000183.jpg` — these are real URPC
 underwater images and **will** detect.
 
+Results land in `app/static/detected/`. Deliberately not `app/static/` — uploading
+`000013.jpg` used to overwrite `app/static/000013_detected.jpg`, the saved reference
+section 3 tells you to compare against.
+
 Stop the server with **Ctrl+C**.
+
+### If the page looks dead — buttons do nothing, no boxes
+
+Run this before touching anything else:
+
+```bash
+cd app && python test_dom_ids.py
+```
+
+It checks that every element `script.js` reaches for actually exists in `index.html`. That
+was false until 15 Sept 2026: `script.js` looked up a login modal that only ever existed in
+an older design, got `null`, and threw a `TypeError` — which killed every handler defined
+below it. Nothing appeared on the page. Only the browser console knew.
 
 ---
 
@@ -170,9 +190,21 @@ Then open **Real-time Monitoring** in the web page and give it that number.
 | Boxes appear but confidence is low | Normal on non-URPC images | Not a bug — the model expects real underwater scenes |
 | Nothing detected at all | Could be a dead model | Run section 3 and compare against her file |
 
-**The accuracy number to quote is `mAP50 = 0.867`** — it's in
-`output_dir/mscoco/mambayolo_n/results.csv`, a file you hold and can show a judge.
-Never say 0.873; that's from her slide, a run we don't have.
+**The accuracy number to quote is `mAP50 = 0.867`** — best epoch (135) in
+`output_dir/mscoco/mambayolo_n/results.csv`, a file you hold and can show a judge. The final
+epoch (235 of 300 requested) reads 0.856.
+
+**Never say 0.873.** We now know exactly what that number is. The thesis (`advisor/【7】…研究1.pdf`,
+Table 4.2) reports it for an *"improved YOLOv8"* whose `C2f` block is replaced by three modules —
+**CAEM + VSSM + MCFM**. Our copy has **only VSSM**; grep finds no CAEM and no MCFM anywhere.
+It is a related model, not this one.
+
+Likewise never claim **87.7** or **FSCIN**. That is their two-stage cascade — a super-resolution
+network in front of the detector — and we have no super-resolution stage at all.
+
+> If asked: *"0.873 is the figure published by the research group for their complete method;
+> the weights we were given measure 0.867."* Full breakdown of which numbers are ours to quote:
+> [`../../advisor/Advisor_Code_Findings.md`](../../advisor/Advisor_Code_Findings.md) §3.
 
 ---
 

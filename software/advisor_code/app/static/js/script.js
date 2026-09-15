@@ -76,8 +76,21 @@ document.addEventListener('DOMContentLoaded', function() {
         startCameraFeed(cameraIndex);
     });
 
+    // contrast enhancement on/off. Default OFF — measured to cost detections in clear
+    // water and to rescue them once the water is stirred up. See predict_video.enhance().
+    document.getElementById('btn-enhance').addEventListener('click', function() {
+        const btn = this;
+        fetch('/enhance', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                btn.textContent = 'Enhancement: ' + (data.enhance ? 'ON' : 'OFF');
+                btn.style.backgroundColor = data.enhance ? '#2a7d5a' : '';
+            })
+            .catch(error => console.error('Enhance toggle failed:', error));
+    });
+
     // show the clock now, then tick it every second
-    updateCurrentTime();        
+    updateCurrentTime();
     setInterval(updateCurrentTime, 1000);
 
     // start live playback
@@ -155,7 +168,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 // image upload: show the returned image
                 displayImage(data.url, 'img-put');
             } else {
-                console.error('No URL returned from server');
+                // OceanEye: was a console.error, so a rejected upload looked on stage like
+                // the button simply doing nothing. Say so where the operator can see it.
+                alert('Detection failed: ' + (data.error || 'no image returned'));
             }
         })
         .catch(error => console.error('Error:', error));
@@ -171,63 +186,11 @@ document.addEventListener('DOMContentLoaded', function() {
         imageElement.classList.remove('hidden');
     }   
     
-    // open the login dialog
-    document.getElementById('login-btn').addEventListener('click', function() {
-        document.getElementById('loginModal').style.display = 'block';
-    });
-
-    // login form submit
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        // stop the form submitting normally
-        event.preventDefault();
-        // read the username and password
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // POST to the login endpoint
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, password })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // logged in
-            if (data.success) {
-                // show the username
-                document.getElementById('username-display').textContent = username;
-                // swap the log-in button for the log-out button
-                document.getElementById('user-info').classList.remove('hidden');
-                document.getElementById('login-btn').classList.add('hidden');
-                document.getElementById('logout-btn').classList.remove('hidden');
-                // close the dialog
-                document.getElementById('loginModal').style.display = 'none';
-            } else {
-                // otherwise show the error
-                alert('Login failed: ' + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Login error:', error);
-        });
-    });
-
-    // log out
-    document.getElementById('logout-btn').addEventListener('click', function() {
-        // call the logout endpoint
-        fetch('/logout')
-        .then(response => {
-            // reload once logged out
-            window.location.reload();
-        });
-    });
-
-    // close the login dialog
-    document.getElementsByClassName('close-button')[0].addEventListener('click', function() {
-        document.getElementById('loginModal').style.display = 'none';
-    });
+    // OceanEye: a login-modal block used to sit here — #login-btn, #loginForm, #loginModal,
+    // #logout-btn, .close-button. None of those elements exist in index.html, which is the
+    // only page that loads this file, so getElementById returned null and the very first
+    // line threw a TypeError on every page load, killing every handler registered below it.
+    // The real login lives in its own inline script in templates/login.html. Deleted.
 
     // start the camera stream
     function startCameraFeed(cameraIndex) {
@@ -241,45 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         cameraOutput.appendChild(cameraVideo);
     }
-    
-    // added to script.js
-    let lastFrameTime = 0;
-    let streamActive = true;
-    
-    function updateStream() {
-        const streamImg = document.getElementById('live-stream');
-        
-        // cache-bust the stream URL
-        streamImg.src = "{{ url_for('video_feed') }}?t=" + Date.now();
-        
-        // performance readout
-        const now = Date.now();
-        if (lastFrameTime > 0) {
-            document.getElementById('latency').textContent = now - lastFrameTime;
-        }
-        lastFrameTime = now;
-        
-        // refresh the resolution readout
-        streamImg.onload = () => {
-            document.getElementById('resolution').textContent = 
-                `${streamImg.naturalWidth}x${streamImg.naturalHeight}`;
-        };
-        
-        if(streamActive) {
-            requestAnimationFrame(updateStream);
-        }
-    }
-    
-    // start the refresh loop
-    document.getElementById('btn-live').addEventListener('click', () => {
-        streamActive = true;
-        updateStream();
-    });
-    
-    // stop button
-    document.getElementById('btn-stop').addEventListener('click', () => {
-        streamActive = false;
-        document.getElementById('live-stream').src = '';
-    });
 
+    // OceanEye: an updateStream() refresh loop used to sit here, wired to #btn-live and
+    // #btn-stop. It built an <img> src out of a Jinja url_for tag written inline in this
+    // file — but Flask serves static/ verbatim and never renders it, so the browser asked
+    // for that literal tag text. On requestAnimationFrame that is a 404 at 60 Hz.
+    // #btn-stop, #live-stream, #latency and #resolution do not exist either. Deleted; the
+    // video tab streams through #live-video, set in uploadFile() above.
+    // test_dom_ids.py now fails if either mistake comes back.
 });

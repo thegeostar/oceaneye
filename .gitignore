@@ -13,6 +13,7 @@ software/advisor_code/*
 !software/advisor_code/selective_scan_fallback.py
 !software/advisor_code/verify_model.py
 !software/advisor_code/bench_scan.py
+!software/advisor_code/bench_enhance.py
 
 # The Flask app. Our edits live in these files — the English UI, the shared model,
 # the threaded camera loop — so they have to be in the repo or a fresh clone loses
@@ -24,6 +25,7 @@ software/advisor_code/app/*
 !software/advisor_code/app/predict_img.py
 !software/advisor_code/app/predict_video.py
 !software/advisor_code/app/predict_camera.py
+!software/advisor_code/app/test_dom_ids.py
 !software/advisor_code/app/templates/
 !software/advisor_code/app/static/
 software/advisor_code/app/static/*
@@ -53,3 +55,6 @@ dist/
 flask_session/
 runs/
 proof.jpg
+# detection output from the web app. static/000013_detected.jpg is a REFERENCE file
+# we compare against, so uploads are written to this subfolder instead of over it.
+software/advisor_code/app/static/detected/

@@ -1,5 +1,9 @@
-> **ARCHIVED 14 Sept 2026 — do not use.** Superseded by [README.md](../README.md) and the pages in `team/`.
-> Dates and folder links below are stale (the folders were renamed). Kept only so nothing is lost.
+> **ARCHIVED — do not use.** Replaced 15 Sept 2026 by **[CONTEXT.md](../CONTEXT.md)** at the top level,
+> which is the file to paste into a new chat. Humans want [README.md](../README.md).
+>
+> Everything below is stale: the folder names, the dates, the `06_Software/oceaneye` pipeline
+> (retired), and the claim that the model does not run yet (it does — 1.12 s/image).
+> Kept only so nothing is lost.
 
 ---
 

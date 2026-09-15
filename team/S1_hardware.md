@@ -2,7 +2,7 @@
 
 # S1 — Hardware, tank, footage, packing
 
-**Today is Monday 14 September. The competition is Sun 20 – Tue 22 September. You have 5 working days: Mon 14 → Fri 18. Sat 19 is travel/rest.**
+**Today is Tuesday 15 September. The competition is Sun 20 – Tue 22 September. You have 4 working days: Tue 15 → Fri 18. Sat 19 is travel/rest.**
 
 ## What you own
 
@@ -40,7 +40,7 @@ The listing must say one of: **"UVC"**, **"works with PC / Windows"**, **"no dri
 - [ ] Powered USB extension 3–5 m $5–10 (a passive cable fails beyond ~5 m) · gravel/sand $3–6 · matte black sheet or card $2–4 · powdered clay or fine soil $1–2 · white translucent plastic for a diffuser (milk jug, baking paper) $1–2 · PVC pipe + zip ties $4–8 · towels + floor sheeting $3–5
 - [ ] **Write every item, price, shop and date in [`../hardware/Purchase_Log.md`](../hardware/Purchase_Log.md)** — the cost slide is 3 points. Core spend should land at **$62–96** inside the **$100** ceiling.
 - [ ] **Submersion test today, not Friday:** hold the probe head in a glass of water 10 minutes, nothing valuable nearby. Check for fogging or water inside.
-- [ ] Hand the camera to S2 and confirm the laptop sees it: `python oceaneye_demo.py --source 0` (try `1` or `2` if `0` is the built-in webcam).
+- [ ] Hand the camera to S2 and confirm Linux sees it: `v4l2-ctl --list-devices`. Note the number in `/dev/videoN` — the built-in webcam is usually `0`, so yours is probably `1` or `2`. That number goes into the app's Real-time Monitoring tab.
 
 ## Tue 15 September — build the tank and the lighting
 

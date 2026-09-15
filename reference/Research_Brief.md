@@ -51,7 +51,7 @@ On the evening of 11 September, Prof. Wang Li sent the team an operation script,
 > | "Assume no GPU, use Colab" | ❌ **RTX 5060 confirmed in this laptop** |
 > | Dataset download links (Part 1.1) | ⚠️ Reference only — do not download |
 >
-> **Read instead:** [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md) and [`../advisor/PPTX_Translation_EN.md`](../advisor/PPTX_Translation_EN.md).
+> **Read instead:** [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md), [`../software/advisor_code/HOW_TO_RUN.md`](../software/advisor_code/HOW_TO_RUN.md), and the advisor's bilingual deck `../advisor/OceanEye-Cambodia-Report.pdf`.
 >
 > **Still genuinely useful here — the reason this file was kept rather than deleted:**
 > - **§2.6** why underwater vision is hard — best source for the *Task Difficulty* argument (15 pts)
