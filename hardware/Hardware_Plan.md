@@ -12,13 +12,20 @@
 > - ✅ **The laptop has an RTX 5060 graphics card** — checked with `nvidia-smi`, not assumed. The AI has enough power to run right here. No cloud, no borrowed machine.
 > - ⏰ **You have one day less.** Everything below is unchanged except urgency: if it cannot arrive by **Tue 16 Sept**, switch to Tier 0 and stop spending.
 
+> ### 🔔 Superseded 15 September — the camera question is closed
+> **We are using the lent Logitech 1080p USB webcam, filming through the glass from outside** (decision D4). It is not waterproof and nothing goes in the water any more.
+>
+> **Do not buy a camera.** Everything below about endoscopes, IP67 ratings, tethers and submersion testing is kept **only as a fallback** in case the Logitech fails. The still-current parts are the **torch, tank, lighting geometry and budget**.
+>
+> The buying list you actually work from is [`../team/S1_hardware.md`](../team/S1_hardware.md).
+
 ## 🏃 The 60-second version
 
-1. Buy a **waterproof UVC USB endoscope camera** (~$15–35). "UVC" is the one word that matters — no UVC, no demo.
-2. Buy a **separate waterproof torch** (~$8–15). This matters **more** than a better camera.
-3. Buy a **clear** tank, toy creatures, 2 USB sticks. Total core spend: **$62–96**.
-4. **Test it in the shop before paying.** If the laptop's Camera app shows a picture, it's UVC.
-5. **If it cannot arrive by Tue 16 Sept → stop buying hardware, switch to recorded video (Tier 0 below).**
+1. ~~Buy a waterproof UVC USB endoscope camera~~ — **done, $0. The Logitech is lent and in hand.**
+2. Buy a **separate torch** (~$8–15). This matters **more** than the camera. No longer needs to be waterproof — it lights the tank from outside.
+3. Buy a **clear** tank, **real** creatures from the seafood market, 2 USB sticks. Core spend now: **~$47–81**.
+4. **Real creatures, not toys** — the model was trained on real animals and may not see a plastic one at all.
+5. **If the tank and creatures cannot be had by Tue 16 Sept → stop buying, switch to recorded video (Tier 0 below).**
 
 Everything after this point is the *why* and the *where*. You only need it if something above goes wrong.
 

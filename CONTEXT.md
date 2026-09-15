@@ -100,7 +100,7 @@ Full operating detail: **[software/advisor_code/HOW_TO_RUN.md](software/advisor_
 |---|---|---|
 | D1 | Optimise for rehearsal, not accuracy | 25 pts to execution, 0 to mAP |
 | D3 | No commercial ROV | US$2,500+, unobtainable. Reframed as cost-effectiveness |
-| D4 | UVC USB endoscope camera on a pole, in a tank | ~US$30, `cv2.VideoCapture(0)` just works |
+| D4 | ~~UVC USB endoscope on a pole, in the water~~ → **superseded 15 Sept: the lent Logitech 1080p webcam, filming through the glass wall** | A camera is already in hand, so nothing is blocked on shipping. Cost: it sees glass-and-air, not a real underwater light path, which widens the gap to the training data. That is what D20 is for |
 | D9 | Capture quality is the top design constraint — **but do not make the scene easy** | Task Difficulty is 15 pts. Clean capture of *deliberately murky* water |
 | D10 | Never plan around the advisor replying | remote, another time zone |
 | D13 | Run their model, do not train our own | retraining scores nothing |
@@ -109,13 +109,15 @@ Full operating detail: **[software/advisor_code/HOW_TO_RUN.md](software/advisor_
 | D17 | Demo Stage 2 only; credit FSCIN and the cascade to the authors | 15 Sept — see §3 |
 | D18 | Route B (`software/oceaneye/`) retired | 15 Sept — a mock detector cannot go on stage, and Route A runs |
 | D19 | **Contrast enhancement ships as a toggle, default OFF** | 15 Sept — measured. In clear water it *costs* 7 of 22 detections, because the model was trained on raw URPC frames. Above ~L2 turbidity it is the only reason there are any (L4: 0 → 8). Gray-world white balance was measured too and was worse at every level — dropped. Evidence: `bench_enhance.py` |
+| D20 | **Confidence floor is a knob (`OCEANEYE_CONF`), default unchanged at 0.25** | 15 Sept — all three paths silently used ultralytics' 0.25 and nothing could change it (`Model.predict` merges `custom={"conf":0.25}` *over* `self.overrides`, so only a call-site kwarg wins). Our specimens are off-distribution, so a real detection at 0.18 was indistinguishable from the model seeing nothing. `verify_model.py img.jpg 0.05` now shows what it almost saw |
 
 ---
 
 ## 6. Open
 
-- ⏳ **Enhancement step — built and measured 15 Sept, but on *simulated* turbidity.** `bench_enhance.py` must be re-run on real tank footage once the camera exists. The numbers on the turbidity slide are not quotable until it is.
-- Camera purchase and tank not confirmed in this thread — check with S1.
+- 🔴 **The model has never seen our own specimens.** Everything measured so far is on the authors' URPC images. Camera is in hand (Logitech, outside the glass); tank and 4 real specimens still to buy. **This is the largest single unknown left** — the weights are frozen on murky seabed footage and our scene is lit glassware. Procedure for reading the result: "Your own tank" in `HOW_TO_RUN.md` §5. Expect lower confidences; that is not a broken install.
+- ⏳ **Enhancement step — built and measured 15 Sept, but on *simulated* turbidity.** `bench_enhance.py` must be re-run on real tank footage once the specimens exist. The numbers on the turbidity slide are not quotable until it is.
+- ⏳ **The demo's confidence floor is not yet chosen.** Default 0.25 holds until someone finds the lowest clean value on the real tank, then pins it and rehearses with it.
 - Venue: power, water permitted, set-up time — unconfirmed.
 - Pre-competition submission deadline — unverified and dangerous if wrong.
 - The deck's part dividers say "Presenter A" / "Presenter B". **We have three speakers.** S3 to resolve.

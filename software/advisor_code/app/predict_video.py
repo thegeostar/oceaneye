@@ -15,6 +15,24 @@ from functools import lru_cache
 WEIGHTS = os.environ.get("OCEANEYE_WEIGHTS", os.path.join(
     parent_dir, "output_dir/mscoco/mambayolo_n/weights/best.pt"))
 
+# OceanEye: confidence floor. Nothing here set one, so all three paths silently used
+# ultralytics' built-in 0.25 — and it cannot be changed by setting model.overrides,
+# because Model.predict() merges {**self.overrides, **custom, **kwargs} with
+# custom = {"conf": 0.25}, which overwrites it. Only a kwarg at the call site wins,
+# so every call site passes CONF.
+#
+# Why it needs a knob: the weights were trained on URPC seabed footage. Our own tank
+# is market-bought specimens behind glass under room light — off that distribution.
+# The model will still fire on them, but weaker, and at 0.25 a real detection at 0.18
+# is indistinguishable from the model seeing nothing at all. That is the one thing you
+# must be able to tell apart when testing a new scene.
+#
+#   OCEANEYE_CONF=0.05 python app.py     # tank testing: show me what it ALMOST saw
+#
+# Default stays 0.25 so verify_model.py still reproduces starfish 0.83 / holothurian 0.78.
+# Find the lowest value that is still clean on YOUR tank, then pin it for the demo.
+CONF = float(os.environ.get("OCEANEYE_CONF", "0.25"))
+
 @lru_cache(maxsize=1)
 def load_model():
     """The one model for this process.
@@ -87,7 +105,7 @@ def process_frame(frame, model):
     """Run the model on one frame and draw the boxes plus a per-class count."""
     # verbose=False: ultralytics otherwise prints a timing line per frame, which on a
     # video is thousands of lines of console spam and a blocking write per frame.
-    results = model.predict(enhance(frame), verbose=False)
+    results = model.predict(enhance(frame), verbose=False, conf=CONF)
     class_counts = defaultdict(int)
     annotated_frame = frame.copy()
 

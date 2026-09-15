@@ -67,11 +67,11 @@ This is the part beginners get wrong. Enhancement algorithms — white balance, 
 
 The number one underwater imaging mistake is putting the light next to the camera. Every suspended particle between lens and subject reflects your light straight back — **backscatter** — and the image fills with glowing white specks and a veiling haze. The effect grows with turbidity, which is exactly the condition you are designing for.
 
-Your USB endoscope has LEDs in a ring *around the lens*. **That is the worst possible geometry.**
+> **Updated 15 Sept:** we now shoot with a **Logitech webcam outside the glass**, not an endoscope in the water, so there are no ring LEDs to turn off. The principle is unchanged and matters *more*, because a glass wall adds a second reflecting surface between lens and subject.
 
-> **Do this:** turn the built-in ring LEDs **down or fully off**, and light the scene with a **separate waterproof torch offset 20–40 cm to the side**, angled so its cone hits the subject but the lens never looks directly down the illuminated water column.
+> **Do this:** light the scene with a **torch offset 20–40 cm to the side**, angled so its cone hits the subject but the lens never looks directly down the illuminated water column. Put **no light beside the lens at all** — room lights included. The glass will mirror anything in front of it straight back into the camera.
 >
-> Cost: one torch and a zip tie. Effect: dramatic. Very few student teams know this.
+> Cost: one torch. Effect: dramatic. Very few student teams know this.
 
 **2. Shorten the water path.** Attenuation is exponential in distance — `I = I₀·e^(−βd)`. Halving the camera-to-subject distance beats any algorithm you could write. Work at **10–25 cm**, not a metre. In a tank you control this completely.
 *Trade-off:* closer means a narrower field of view and fewer targets per frame. Find the distance where 3–6 targets are visible and stop there.
@@ -140,12 +140,14 @@ v4l2-ctl -d /dev/video0 -c auto_exposure=1 -c exposure_time_absolute=150 \
 
 ## 4. Software: enhancement, and the trap inside it
 
-Enhancement code already exists in `software/oceaneye/vision.py`: gray-world white balance, then CLAHE on the LAB lightness channel. That order is deliberate — correct colour first, then contrast, or you amplify the cast before removing it.
+Enhancement ships in `software/advisor_code/app/predict_video.py` as `enhance()`: CLAHE on the LAB lightness channel, **defaulting OFF**. Gray-world white balance was measured alongside it and was *worse at every turbidity level*, so it was dropped.
 
-> ### ⚠️ The trap that will silently cost you accuracy
+> ### ⚠️ The trap that will silently cost you accuracy — now measured, not theoretical
 > **Whatever preprocessing you apply at inference, you must also apply during training.**
 >
-> If you train on raw images and run inference on enhanced ones, you have manufactured a domain shift and made your system *worse* — while believing you improved it. Pick one pipeline and use it on both sides. Write it down.
+> If you train on raw images and run inference on enhanced ones, you have manufactured a domain shift and made your system *worse* — while believing you improved it.
+>
+> **This is exactly what we measured.** We cannot retrain, so the weights are stuck on raw URPC frames. On clear water, enhancement therefore *throws away* about a third of the detections. Above roughly L2 turbidity it reverses and becomes the only reason there are any detections at all (L4: 0 → 8). That is why it is a toggle, default OFF, and not a permanent part of the pipeline. `bench_enhance.py` asserts both halves, so a slide cannot drift from the code.
 
 **Second point, for honesty:** enhancement reliably improves what a *human* sees. Its effect on *detector* accuracy is genuinely mixed in the literature. So:
 

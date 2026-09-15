@@ -14,7 +14,7 @@ That page covers the environment trap, the install, the acceptance test, the web
 
 A second, independent pipeline of ours (`oceaneye/`, `oceaneye_demo.py`, `profiles/`, `train_oceaneye.py`) built in the days when the advisor's model would not run. Its detector was a mock colour-blob stand-in, so it could never have gone on stage — it existed to keep the project moving while the real model was blocked.
 
-**Retired 15 September 2026 (decision D18)**, once the real model reached 1.12 s/image with a smooth live camera feed. Keeping two codebases was costing navigation, not buying insurance.
+**Retired 15 September 2026 (decision D18)**, once the real model reached 1.12 s/image with a smooth live camera feed. Keeping two codebases was costing navigation, not buying insurance. The files were deleted from disk the same day.
 
 It is not lost — it is in git history:
 
@@ -24,4 +24,4 @@ git show <commit>:software/oceaneye/vision.py    # read a file
 git checkout <commit> -- software/oceaneye/      # bring it all back
 ```
 
-> 🔎 **One piece is wanted again:** the gray-world white-balance and CLAHE code in `oceaneye/vision.py`. It is the honest, measurable version of the advisor's Stage 1 restoration idea — see [CONTEXT.md §6](../CONTEXT.md). Recover it from git rather than rewriting it.
+The one piece worth keeping came across already: the CLAHE contrast step now lives in `app/predict_video.py` as `enhance()`. Its gray-world white-balance partner was measured and found worse at every turbidity level, so it was deliberately left behind.

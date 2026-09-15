@@ -69,7 +69,7 @@ Say it out loud too: *"The detection model is not ours. It is patented work by o
 |---|---|---|
 | 1 | Title | OceanEye · Group 22 · Dararoth, Yuleang, Sophearoth. **Not their team's names.** |
 | 2 | The problem | Water scatters and absorbs light → low contrast, blur, noise; small creatures look like background. Their deck slide 6 is exactly this — reuse it. |
-| 3 | Our platform | Photo of the tank + US$30 waterproof USB camera, torch 20–40 cm to the side. Say the cost out loud. |
+| 3 | Our platform | Photo of the tank + a **borrowed 1080p USB webcam filming through the glass**, torch 20–40 cm to the side. Say the cost out loud — the camera was **$0**, the whole rig is under $100. Frugality is the point, not an apology. |
 | 4 | The model | "Mamba-YOLO — a YOLOv8 architecture in which the feature blocks are replaced with Mamba state-space blocks." State-space models are a 2024 line; linear, not quadratic, in sequence length. |
 | 5 | ⭐ Making it run | The honest engineering slide: the published CUDA kernel targets an older GPU generation; we reimplemented it in portable PyTorch and it reproduces their result **byte for byte**. 2.3 s → 1.1 s. **This is the strongest slide we own.** |
 | 6 | Results | **mAP50 = 0.867** from the training log we hold. Published comparison: YOLOv8 0.855 → their full method 0.873. Note that APm went *down* (0.402 → 0.391) — saying so earns credit. |

@@ -177,6 +177,53 @@ Then open **Real-time Monitoring** in the web page and give it that number.
 > recorded footage it stamps `PLAYING RECORDED FOOTAGE - NOT LIVE` on the screen.
 > Never narrate a recorded file as live. Professional Conduct is 10 points.
 
+### Your own tank: telling "saw nothing" apart from "almost saw it"
+
+Expect the first tank test to detect **less** than her sample images do. That is not a
+broken install. The weights were trained on URPC seabed footage — murky green water,
+creatures on sand. Our tank is market-bought specimens behind glass under room light.
+The model still fires on them, just weaker.
+
+The danger is that a real detection at 0.18 and a model that sees nothing at all look
+**identical** on screen, because everything below **0.25** is hidden. So before changing
+anything about the tank, find out which one you have:
+
+```bash
+# photograph the tank, then ask what the model ALMOST saw
+python verify_model.py my_tank_photo.jpg 0.05
+```
+
+| What you see | What it means | Do this |
+|---|---|---|
+| Correct names at 0.10–0.25 | **Good news.** It recognises them, it is just unsure | Lower the floor (below), then improve the scene |
+| Right box, wrong name | Recognises the shape, confuses the species | Usually lighting. Try section 4 of `Core_Strategy_Data_Quality.md` |
+| Nothing even at 0.05 | Genuinely does not see it | Change the **scene**, not the software — see below |
+
+To run the **web app and live camera** at a lower floor, set it once before starting:
+
+```bash
+OCEANEYE_CONF=0.10 python app/app.py
+```
+
+Find the lowest value that is still clean on your tank, then **pin that number and
+rehearse with it**. Too low and the demo fills with phantom boxes on gravel and
+reflections, which costs more on stage than a missed creature.
+
+> `verify_model.py` with no arguments always uses 0.25 and ignores `OCEANEYE_CONF`, so
+> the acceptance test cannot drift no matter what you export.
+
+**If nothing is detected even at 0.05, fix the scene — in this order, cheapest first:**
+
+1. **Kill the reflections.** The webcam is outside the glass, so the room is mirrored in
+   it. Press the lens against the glass and shade the front.
+2. **Dark background.** Put a dark towel or sand-coloured card behind and under the tank.
+   A white table is the single most off-distribution thing in the room.
+3. **Light from the side, never the front.** Front light bounces straight back off the
+   glass. This is the whole point of `reference/Core_Strategy_Data_Quality.md`.
+4. **Cloud the water slightly.** A pinch of clay makes it look far more like the training
+   data, and it is what makes the enhancement toggle earn its place.
+   ⚠️ **One-way door — you cannot un-cloud it mid-rehearsal. Measure the dose first.**
+
 ---
 
 ## 6. When something fails
@@ -187,8 +234,8 @@ Then open **Real-time Monitoring** in the web page and give it that number.
 | `ModuleNotFoundError: selective_scan_cuda_core` | Step 4 didn't finish | Re-run step 4 |
 | `undefined symbol` / `no kernel image` | GPU mismatch | **Stop. Ask in chat.** Use the fallback |
 | `Address already in use` | Server already running | `pkill -f app.py` then retry |
-| Boxes appear but confidence is low | Normal on non-URPC images | Not a bug — the model expects real underwater scenes |
-| Nothing detected at all | Could be a dead model | Run section 3 and compare against her file |
+| Boxes appear but confidence is low | Normal on non-URPC images | Not a bug — the model expects real underwater scenes. See "Your own tank" in section 5 |
+| Nothing detected at all | Dead model, **or** everything fell below the 0.25 floor | First `python verify_model.py` — if her sample still gives 0.83/0.78 the model is fine, so it is your scene. Then `verify_model.py your.jpg 0.05` |
 
 **The accuracy number to quote is `mAP50 = 0.867`** — best epoch (135) in
 `output_dir/mscoco/mambayolo_n/results.csv`, a file you hold and can show a judge. The final

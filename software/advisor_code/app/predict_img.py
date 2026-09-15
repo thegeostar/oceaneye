@@ -12,7 +12,7 @@ sys.path.insert(0, parent_dir)
 # OceanEye: the weights path and the shared model live in predict_video.py, so the
 # image, video and camera paths all use one copy. Override with
 #   OCEANEYE_WEIGHTS=/path/to/other.pt python app.py
-from predict_video import enhance, load_model  # noqa: E402  (needs sys.path above)
+from predict_video import CONF, enhance, load_model  # noqa: E402  (needs sys.path above)
 
 
 def detect(img_path):
@@ -26,7 +26,7 @@ def detect(img_path):
     # run detection; one image in, one result out
     # OceanEye: was a `for r in results:` loop that saved inside the loop and returned
     # after it, so an empty result list raised UnboundLocalError instead of anything useful.
-    r = load_model()(enhance(img), verbose=False)[0]
+    r = load_model()(enhance(img), verbose=False, conf=CONF)[0]
     im_array = r.plot()  # BGR array with the boxes drawn on
     im = Image.fromarray(im_array[..., ::-1])  # RGB PIL image
     # build the output path

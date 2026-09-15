@@ -22,7 +22,7 @@ on GitHub** — it rejects any single file over 100 MB. That is already handled:
 | Goes on GitHub | Stays on Google Drive |
 |---|---|
 | All the `.md` plans and notes | `best.pt` and every other `.pt` |
-| Our own code in `software/oceaneye/` | `software/advisor_code/` |
+| The ~9 app files we edited under `software/advisor_code/app/` | the other ~3000 files of `software/advisor_code/` |
 | The script and slides (`.docx`, `.pptx`) | All `.mp4` footage |
 | The competition rules | `Mamba-YOLO-main.zip` |
 

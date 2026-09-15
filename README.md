@@ -23,7 +23,7 @@ Two more, for everyone:
 
 ## What we are building, in 5 lines
 
-1. A **waterproof USB camera** on a pole, in a clear tank of water, with plastic sea creatures in it.
+1. A **USB webcam** looking through the wall of a glass tank of water, with **real** sea creatures in it (from the market — the AI was trained on real ones, so toys risk being misread).
 2. Software on a laptop that watches the video, **draws a box around each creature** and names it.
 3. Four creatures only: **sea cucumber, sea urchin, scallop, starfish.**
 4. It must work **with the Wi-Fi off.** The venue has no internet.
@@ -39,7 +39,11 @@ Two more, for everyone:
 
 🔴 **The advisor's deck claims more than we can run.** It presents a two-stage system (FSCIN restoration → improved YOLOv8). We have one stage, and only one of its three modules. **We demo what runs and credit the rest to the authors.** Read this before writing any slide: [advisor/Advisor_Code_Findings.md](advisor/Advisor_Code_Findings.md) §3.
 
-⏳ Camera not confirmed bought · written permission to use the model not yet in hand.
+✅ **Camera in hand** — the lent Logitech 1080p webcam. It films *through* the glass, so it stays dry.
+
+⏳ **Untested on our own creatures.** Tank and 4 specimens still to buy. Expect weaker detections than on her sample images and know how to read that before panicking → ["Your own tank"](software/advisor_code/HOW_TO_RUN.md) in HOW_TO_RUN §5.
+
+⏳ Written permission to use the model publicly is not yet in hand.
 
 ---
 

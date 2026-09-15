@@ -12,41 +12,45 @@
 
 ---
 
-## 🔴 DO THIS FIRST TODAY — buy the camera, in person, before anything else
+## ✅ The camera is solved — do not buy one
 
-Nothing has been bought. Everything else on this page waits on this. Go to a market today; do not order online unless it can arrive **by Wed 16 Sept**.
+We are using the **lent Logitech 1080p USB webcam**. It is already UVC, already 1080p, and costs nothing.
 
-Buy a **waterproof USB endoscope camera** — a small camera on a long cable, sold for looking inside pipes and car engines. **US$15–35.**
+**It is not waterproof and it never goes in the water.** It sits *outside* the tank and films **through the glass wall**. This is the whole plan now — no pole, no tether, no submersion test, nothing to flood.
 
-The listing must say one of: **"UVC"**, **"works with PC / Windows"**, **"no driver needed"**.
-*UVC = the standard that makes the laptop treat it as an ordinary webcam. No UVC, no demo — our code cannot open it at all.*
+> The old plan (a waterproof endoscope on a pole, in the water) is **retired** — decision D4. The endoscope buying guide is still in [`../hardware/Hardware_Plan.md`](../hardware/Hardware_Plan.md) as a fallback if the Logitech dies, but do not spend money on it now.
 
-- ❌ Listing only shows a **phone app** → wrong product, do not buy.
-- ❌ **Wi-Fi** camera → wrong product. It must be a USB-A or USB-C plug.
-- ✅ IP67/IP68 (fully waterproof when submerged), 720p is plenty, 3–10 m cable (that cable is our "tether").
-- ✅ **Test it in the shop before you pay.** Plug into a laptop; if the Camera app shows a picture, it is UVC.
+## 🔴 DO THIS FIRST TODAY — the tank and the four creatures
 
-**Where:** Phsar Thmei (Central Market) electronics stalls — widest selection, bargain and test. Also Phsar Toul Tom Poung (Russian Market) and Phsar Olympic. Aquarium/pet shops for tank and gravel. Toy or party stalls for the creatures. Dive/fishing shops for a better torch. Hardware shops for PVC, zip ties, black sheeting, clay. ⚠️ Stock and prices are **unverified** — phone ahead before crossing the city.
+That is now the only thing blocking the whole team. S2 cannot test the AI on anything real until these exist.
+
+- **A clear glass tank**, 40–60 cm. Must be see-through or the judges cannot watch the water go murky.
+- **Four REAL creatures: sea cucumber, sea urchin, scallop, starfish.** Seafood market or a dried-goods shop. **Not toys.**
+  > ⚠️ **Why real matters.** The AI was trained on photographs of real animals on a real seabed. A plastic toy is the wrong colour, the wrong texture and the wrong shape, and the model may simply not see it — or name it wrong, on stage, in front of a judge. Dried is fine. Plastic is a gamble we do not need to take.
+
+**Where:** Aquarium/pet shops for the tank and gravel. **Seafood market or dried-goods stalls for the four creatures.** Dive/fishing shops for a torch. Hardware shops for PVC, zip ties, black sheeting, clay. ⚠️ Stock and prices are **unverified** — phone ahead before crossing the city.
+
+**Hand them to S2 the moment you have them.** The first question is whether the AI sees them at all, and nobody can answer it until then.
 
 ---
 
 ## Mon 14 September — buy everything, test the camera wet
 
-- [ ] Waterproof **UVC USB endoscope camera** — $15–35
-- [ ] **Waterproof LED torch** — $8–15. ⭐ This matters **more** than a better camera. Given the choice, take a 720p camera plus a torch over a 1080p camera with ring lights only.
-- [ ] **Clear** plastic box or small aquarium, 40–60 cm — $10–25. Must be see-through or the judges cannot see the water going murky.
-- [ ] Plastic toy **sea cucumber, sea urchin, scallop, starfish** — $5–15
+- [x] ~~Waterproof UVC USB endoscope camera~~ — **not needed, the Logitech is lent and in hand. $0.**
+- [ ] **LED torch** — $8–15. ⭐ Lighting matters **more** than the camera. It does not need to be waterproof any more: it lights the tank from outside, like the camera.
+- [ ] **Clear glass tank or plastic box**, 40–60 cm — $10–25. Must be see-through or the judges cannot see the water going murky.
+- [ ] **REAL sea cucumber, sea urchin, scallop, starfish** — seafood or dried-goods market, $5–15. **Not plastic toys** — see the box above.
 - [ ] **2 × USB flash drives**, 16 GB+ — $8–12
 - [ ] Powered USB extension 3–5 m $5–10 (a passive cable fails beyond ~5 m) · gravel/sand $3–6 · matte black sheet or card $2–4 · powdered clay or fine soil $1–2 · white translucent plastic for a diffuser (milk jug, baking paper) $1–2 · PVC pipe + zip ties $4–8 · towels + floor sheeting $3–5
 - [ ] **Write every item, price, shop and date in [`../hardware/Purchase_Log.md`](../hardware/Purchase_Log.md)** — the cost slide is 3 points. Core spend should land at **$62–96** inside the **$100** ceiling.
-- [ ] **Submersion test today, not Friday:** hold the probe head in a glass of water 10 minutes, nothing valuable nearby. Check for fogging or water inside.
-- [ ] Hand the camera to S2 and confirm Linux sees it: `v4l2-ctl --list-devices`. Note the number in `/dev/videoN` — the built-in webcam is usually `0`, so yours is probably `1` or `2`. That number goes into the app's Real-time Monitoring tab.
+- [x] ~~Submersion test~~ — **not applicable.** Nothing we own goes in the water. Keep the webcam and every cable well clear of spills.
+- [ ] Hand the camera to S2 and confirm Linux sees it: `v4l2-ctl --list-devices`. Note the number in `/dev/videoN` — the built-in webcam is usually `0`, so the Logitech is probably `1` or `2`. That number goes into the app's Real-time Monitoring tab.
 
 ## Tue 15 September — build the tank and the lighting
 
 - [ ] Line the **far wall and floor with matte black** card or plastic. Fill with water, add gravel and the four creatures.
-- [ ] Mount the camera on the PVC pole with zip ties so it is **rigid** — motion blur kills small-target detection.
-- [ ] **Turn the camera's own ring LEDs down or off.** Zip-tie the torch **20–40 cm to the side**, angled onto the creatures. Tape the white translucent plastic over the torch as a diffuser.
+- [ ] Stand the webcam **against the outside of the glass**, lens as close to the glass as it will go. Fix it so it is **rigid** — motion blur kills small-target detection. Shade the front of it: the room reflects in the glass straight back into the lens, and that is the number-one reason a tank shot comes out unusable.
+- [ ] **Light from the side, never from beside the lens.** Put the torch **20–40 cm to the side**, angled onto the creatures, and tape the white translucent plastic over it as a diffuser. Front light bounces off the glass and blinds the shot.
 - [ ] Set the camera **10–25 cm** from the creatures. Find the distance where **3–6 targets** are visible and stop there.
 - [ ] With S2, **lock the camera settings** (see below) and copy the numbers into the Purchase_Log table.
 - [ ] Film **2–3 minutes of footage** of the rig working. This is raw material for S2 and your insurance.

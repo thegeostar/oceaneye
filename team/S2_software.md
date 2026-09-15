@@ -33,6 +33,10 @@ cd app && python app.py               # http://localhost:8080
 - [ ] 🔴 **Back up `best.pt` ×3** — laptop, USB stick, cloud. 139 MB, irreplaceable, and it exists only because the advisor sent it. Do this before anything else.
 - [ ] **Lock the camera settings before any AI work** — exposure, white balance, gain, and force MJPG *(a compressed format; without it many USB cameras crawl at ~5 fps)*. Check ≥25 fps. Copy the numbers the driver **reports back** into `../hardware/Purchase_Log.md`, not the ones you asked for.
 - [ ] Live end to end: camera in, boxes out, on the Real-time Monitoring tab.
+- [ ] 🔴 **The moment S1 hands over the creatures: photograph them in the tank and run**
+      `python verify_model.py that_photo.jpg 0.05`
+      **Expect weaker results than on her sample images — that is normal, not a broken install.** The AI learnt on murky seabed footage; ours is lit glassware. The `0.05` is what tells you *"it sees a starfish at 0.18 but is hiding it"* apart from *"it truly sees nothing"* — those look identical on screen otherwise. Full procedure and what to do about each outcome: **"Your own tank"** in [`HOW_TO_RUN.md`](../software/advisor_code/HOW_TO_RUN.md) §5.
+- [ ] Pick the demo's confidence floor from that test and **write the number down**: `OCEANEYE_CONF=0.10 python app/app.py`. Lowest value that is still clean. Too low = phantom boxes on gravel, which looks worse on stage than a missed creature. **Rehearse with the number you pick.**
 - [ ] ⏰ **14:00 — camera not working? Switch to recorded video permanently and never look back.**
 
 **Wed 16 — FEATURE FREEZE**
