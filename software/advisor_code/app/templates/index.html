@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OceanEye-AI Vision-based Underwater Intelligent Sensing and Detection System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #9090909a; 
+        }
+
+        header.navbar {
+            background-color: #333; 
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header.navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #user-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-align: right;
+            color: white;
+            font-size: 14px;
+        }
+
+        #user-info img {
+            vertical-align: middle;
+        }
+
+        #current-time {
+            margin-right: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #222; /* calmer nav bar background */
+        }
+
+        .navbar ul li {
+            margin: 0 5px;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover, .navbar ul li a.active {
+            background-color: #555; /* calmer nav bar background */
+        }
+
+        .content {
+            padding: 10px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 10px auto;
+            align-items: center; /* vertically centred */
+        }
+
+        .hero {
+            background-color: #333; /* calmer main area background */
+            color: white;
+            padding: 20px 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            justify-content: center; /* horizontally centred */
+            align-items: center; /* vertically centred */
+            height: 70vh; /* container height follows the viewport */ 
+            display: flex;
+            flex-direction: column;
+            text-align: center; /* centred text */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            margin: 0 0 5px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .preview {
+            justify-content: center; /* horizontally centred */
+            background-color: rgba(186, 186, 186, 0.877);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            max-width: 1300px;
+            margin: 10px auto;
+            text-align: center;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            height: 65vh;
+            width: 195vh;
+        }
+
+        .preview img {
+            max-height: 70%;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .action-button {
+            background-color: #4c4365;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 20px;
+        }
+
+        .action-button:hover {
+            background-color: #372f4f;
+        }
+
+        footer.footer {
+            background-color: #222; 
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #live-output,
+        #camera-output,
+        #image-output {
+            margin-top: 10px;
+        }
+
+        #live-video,
+        #camera-video,
+        #img-put {
+            display: block;
+            max-width: 80%;
+            height: auto;
+            margin: 10px auto;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        /* added CSS */
+        .logout-btn {
+            display: none;
+            position: absolute;
+            margin-top: 5px;
+            right: 3px; /* distance from the right edge */
+            background-color: #777;
+            color: red; /* red text */
+            border-radius: 5px;
+            padding: 15px;
+            transition: opacity 5s ease-in-out; /* fade transition */
+            opacity: 0; /* transparent to start with */
+        }
+
+        #user-info:hover .logout-btn {
+            display: block;
+            opacity: 1;
+        }
+
+        #user-info:hover .logout-btn:hover {
+            display: block;
+            opacity: 1; /* keep visible while the log-out button is hovered */
+        }
+
+        .logout-btn:hover {
+            display: block;
+            opacity: 1; /* keep visible while the log-out button is hovered */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <h1>OceanEye — AI Vision-based Underwater Intelligent Sensing and Detection System</h1>
+        <div id="user-info">
+            <span id="current-time"></span>
+            <span>Welcome, <img src="../static/images/profile.svg"> {{username}}
+                <a href="{{ url_for('logout') }}" class="white-text logout-btn">Log out</a>
+            </span>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" id="btn-live" class="tab">Video Detection</a></li>
+            <li><a href="#" id="btn-image" class="tab">Image Detection</a></li>
+            <li><a href="#" id="btn-camera" class="tab">Real-time Monitoring</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Welcome</h2>
+                <p>The system supports image detection, video analysis, and real-time monitoring, providing an efficient solution for underwater image perception, monitoring, and management.</p>
+            </div>
+            <div id="live-preview" class="preview hidden">
+                <button id="btn-source" class="action-button">Choose Video</button>
+                <input type="file" id="videoUpload" accept="video/*" hidden>
+                <div>
+                    <img id="live-video" src="/static/images/play-button-r.svg" class="hidden">
+                    <div id="live-output"></div>
+                </div>
+            </div>
+            <div id="camera-preview" class="preview hidden">
+                <select id="camera-select" class="action-button">
+                    <option value="0">Camera 1</option>
+                    <option value="1">Camera 2</option>
+                </select>
+                <button id="btn-camera-start" class="action-button">Start Detection</button>
+                <div>
+                    <img id="camera-video" class="hidden">
+                    <div id="camera-output"></div>
+                </div>
+            </div>
+            <div id="image-preview" class="preview hidden">
+                <button id="btn-choose-image" class="action-button">Choose Image</button>
+                <input type="file" id="imageUpload" accept="image/*" hidden>
+                <div>
+                    <img id="img-put" src="/static/images/image.svg">
+                    <div id="image-output"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 OceanEye-AI Vision-based Underwater Intelligent Sensing and Detection System</p>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>

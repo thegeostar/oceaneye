@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - OceanEye</title>
+    <style>
+        /* base page style */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* font */
+            background-color: #9090909a; /* matching the home page background */
+            display: flex; /* flexbox layout */
+            justify-content: center; /* horizontally centred */
+            align-items: center; /* vertically centred */
+            height: 100vh; /* full viewport height */
+        }
+
+        /* login card */
+        .login-container {
+            background-color: #333; /* calmer background */
+            padding: 40px; /* padding */
+            border-radius: 8px; /* corner radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* shadow */
+            width: 300px; /* width */
+            color: white; /* text colour */
+        }
+
+        /* form heading */
+        .login-container h2 {
+            text-align: center; /* centred */
+            margin: 0 0 20px; /* margin */
+            color: white; /* text colour */
+        }
+
+        /* form group */
+        .form-group {
+            margin-bottom: 20px; /* bottom margin */
+        }
+
+        /* form label */
+        .form-group label {
+            display: block; /* label takes a whole line */
+            margin-bottom: 5px; /* bottom margin */
+        }
+
+        /* text input */
+        .form-group input[type="text"], 
+        .form-group input[type="password"] {
+            width: 100%; /* full container width */
+            padding: 10px; /* padding */
+            border: 1px solid #ddd; /* border style */
+            border-radius: 4px; /* corner radius */
+            box-sizing: border-box; /* box sizing */
+            background-color: #555; /* background colour */
+            color: white; /* text colour */
+        }
+
+        /* hint text */
+        .form-group input[type="text"]::placeholder, 
+        .form-group input[type="password"]::placeholder {
+            color: #aaa; /* hint colour */
+        }
+
+        /* submit button */
+        .form-group button {
+            width: 100%; /* full container width */
+            padding: 10px; /* padding */
+            background-color: #4c4365; /* background colour */
+            border: none; /* no border */
+            border-radius: 4px; /* corner radius */
+            color: white; /* text colour */
+            cursor: pointer; /* cursor */
+            font-size: 16px; /* font size */
+        }
+
+        /* button hover */
+        .form-group button:hover {
+            background-color: #372f4f; /* hover background */
+        }
+
+        /* footer links */
+        .form-links {
+            text-align: center; /* centred */
+            margin-top: 20px; /* top margin */
+        }
+
+        /* link */
+        .form-links a {
+            margin: 0 5px; /* left and right margin */
+            color: #007bff; /* text colour */
+            text-decoration: none; /* no underline */
+        }
+
+        /* link hover */
+        .form-links a:hover {
+            text-decoration: underline; /* underline on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <!-- username field -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <!-- password field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <!-- log-in button -->
+            <div class="form-group">
+                <button type="submit" id="loginButton">Login</button>
+            </div>
+            <!-- footer link -->
+            <div class="form-links">
+                <a href="{{ url_for('register_page') }}">Register Account</a>
+                <a href="{{ url_for('reset_password_page') }}">Forgot password?</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript behaviour -->
+    <script>
+        // login form submit
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // stop the form submitting normally
+
+            // read the username and password
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+
+            // disable the button and show progress
+            loginButton.disabled = true;
+            loginButton.textContent = 'Signing in...';
+
+            // send the login request
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // re-enable the button
+                loginButton.disabled = false;
+                loginButton.textContent = 'Log in';
+
+                // logged in: go to the home page
+                if (data.success) {
+                    window.location.href = '/';
+                } else {
+                    // otherwise show the error
+                    alert('Login failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                // network or server error
+                console.error('Login error:', error);
+                alert('Something went wrong while logging in. Please try again.');
+                loginButton.disabled = false;
+                loginButton.textContent = 'Log in';
+            });
+        });
+    </script>
+</body>
+
+</html>

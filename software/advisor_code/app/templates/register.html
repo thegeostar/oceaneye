@@ -1,0 +1,162 @@
+<!DOCTYPE html> <!-- HTML5 doctype -->
+<html lang="en"> <!-- page language -->
+
+<head>
+    <meta charset="UTF-8"> <!-- UTF-8 -->
+    <title>Register - Underwater Image Enhancement and Object Detection System</title> <!-- page heading -->
+    <style>
+        /* base page style */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* font */
+            background-color: #9090909a; /* background, matching the login page */
+            display: flex; /* flexbox layout */
+            justify-content: center; /* horizontally centred */
+            align-items: center; /* vertically centred */
+            height: 100vh; /* full viewport height */
+        }
+
+        /* register card */
+        .login-container {
+            background-color: #333; /* background, matching the login page */
+            padding: 40px; /* padding */
+            border-radius: 8px; /* corner radius */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* shadow */
+            width: 300px; /* width */
+            color: white; /* text colour */
+        }
+
+        /* heading */
+        .login-container h2 {
+            text-align: center; /* centred text */
+            margin: 0 0 20px; /* margin */
+            color: white; /* text colour, matching the login page */
+        }
+
+        /* form group */
+        .form-group {
+            margin-bottom: 20px; /* bottom margin */
+        }
+
+        /* label */
+        .form-group label {
+            display: block; /* block level */
+            margin-bottom: 5px; /* bottom margin */
+            color: white; /* text colour, matching the login page */
+        }
+
+        /* text and password inputs */
+        .form-group input[type="text"], 
+        .form-group input[type="password"] {
+            width: 100%; /* full parent width */
+            padding: 10px; /* padding */
+            border: 1px solid #ddd; /* border */
+            border-radius: 4px; /* corner radius */
+            box-sizing: border-box; /* box sizing */
+            background-color: #555; /* background */
+            color: white; /* text colour */
+        }
+
+        /* hint text */
+        .form-group input[type="text"]::placeholder, 
+        .form-group input[type="password"]::placeholder {
+            color: #aaa; /* hint colour */
+        }
+
+        /* button */
+        .form-group button {
+            width: 100%; /* full parent width */
+            padding: 10px; /* padding */
+            background-color: #4c4365; /* background */
+            border: none; /* no border */
+            border-radius: 4px; /* corner radius */
+            color: white; /* text colour */
+            cursor: pointer; /* cursor */
+            font-size: 16px; /* font size */
+        }
+
+        /* button hover */
+        .form-group button:hover {
+            background-color: #372f4f; /* background change */
+        }
+
+        /* footer links */
+        .form-links {
+            text-align: center; /* centred */
+            margin-top: 20px; /* top margin */
+        }
+
+        /* link */
+        .form-links a {
+            margin: 0 5px; /* horizontal margin */
+            color: #007bff; /* text colour */
+            text-decoration: none; /* no underline */
+        }
+
+        /* link hover */
+        .form-links a:hover {
+            text-decoration: underline; /* underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Create an account</h2>
+        <form id="registerForm">
+            <!-- username field -->
+            <div class="form-group">
+                <label for="newUsername">Username</label>
+                <input type="text" id="newUsername" name="newUsername" placeholder="Enter your username" required>
+            </div>
+            <!-- password field -->
+            <div class="form-group">
+                <label for="newPassword">Password</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Enter your password" required>
+            </div>
+            <!-- register button -->
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+            <!-- footer link -->
+            <div class="form-links">
+                <a href="{{ url_for('login_page') }}">Already have an account? Log in</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript behaviour -->
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // stop the form submitting normally
+            // read the username and password
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            // send the registration request
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: newUsername, password: newPassword })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Registration succeeded
+                if (data.success) {
+                    alert('Registration succeeded: ' + data.message);
+                    window.location.href = '/login'; // go to the login page
+                } else {
+                    // Registration failed
+                    alert('Registration failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                // network or server error
+                console.error('Registration error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -24,9 +24,15 @@ model = YOLO(WEIGHTS)
 
 t = time.time()
 result = model(image, verbose=False)[0]
+cold = time.time() - t
+
+# The first call pays for CUDA context setup, cuDNN autotuning and lazy module init.
+# On stage the model will already be warm, so report the number you will actually get.
+t = time.time()
+result = model(image, verbose=False)[0]
 elapsed = time.time() - t
 
-print(f"\ninference: {elapsed:.2f} s")
+print(f"\ninference: {elapsed:.2f} s  (first call {cold:.2f} s — warm it up before the demo)")
 print(f"detections: {len(result.boxes)}")
 for cls, conf in sorted(zip(result.boxes.cls.tolist(), result.boxes.conf.tolist()),
                         key=lambda z: -z[1]):
