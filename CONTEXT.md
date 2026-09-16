@@ -3,13 +3,34 @@
 **Paste this file into a new chat and the assistant has the whole project.**
 Human? You want [README.md](README.md) instead.
 
-*Current as of 15 September 2026. Competition: Sun 20 – Tue 22 September.*
+*Current as of 16 September 2026.*
 
 ---
 
 ## 1. The job
 
-Three students from the Royal University of Phnom Penh — **Eng Dararoth (S1)**, **Povchomreoun Yuleang (S2)**, **Sopheak Sopheaoth (S3)** — give a **20-minute live underwater AI detection demo** at the 2026 World Vocational College Skills Competition, Southeast Asia Division, Phnom Penh. Roles were assigned by the advisor and must not be swapped.
+Three students from the Royal University of Phnom Penh — **Eng Dararoth (S1)**, **Povchomreoun Yuleang (S2)**, **Sopheak Sopheaoth (S3)** — are **Group 22** at the 2026 World Vocational College Skills Competition, Southeast Asia Division, Phnom Penh. Roles were assigned by the advisor and must not be swapped.
+
+**Registered project title, word for word** (organisers' list): *"OceanEye: AI Vision-Driven Intelligent Underwater Perception and Detection System"* / `OceanEye—AI视觉驱动的水下智能感知与检测系统`. Older docs said "…Underwater Robot Intelligent Biological Detection System" — that is **not** the registered name.
+
+### The deliverable — two parts, not one
+
+From the invitation letter, *Participation Requirements*, verbatim:
+
+> "they must complete the **skill operation within 20 minutes** at the competition venue, **followed by an on-site presentation**… All participating teams are required to bring their own competition-related equipment."
+
+- **20 minutes = the operation only** (S1 setup/rig 00:00–08:00, S2 the AI 08:00–20:00). A ceiling, not a target.
+- **The presentation follows it and has no stated length.** S3 owns it. Unknown → deck flexes 5–10 min. **Do not "correct" this back into one 20-minute block** — that was our misreading until 16 Sept.
+
+### Schedule — from the agenda uploaded 16 Sept, which supersedes the letter's 19–21 Sept version
+
+| Day | What |
+|---|---|
+| **Sun 20** | 08:00–15:00 registration · **16:00–18:00 drawing lots + rehearsal, Auditorium** ← bring the whole rig |
+| **Mon 21** | 08:00–12:00 Groups 1–15 · **13:30–17:00 Groups 16–30 ← us, Room 501** |
+| **Tue 22** | 09:00–12:00 results · 14:00–15:20 closing + awards · 15:30–21:00 departure |
+
+Room 501 = New Generation Information Technology track. Group numbering is **per university**, so "Group 22" in the agenda must be confirmed at drawing lots. Detail: [team/competition_days.md](team/competition_days.md).
 
 **Assume no venue internet and no venue GPU.** Everything runs offline on one laptop (Ubuntu, RTX 5060 8 GB, sm_120).
 
@@ -117,6 +138,7 @@ Full operating detail: **[software/advisor_code/HOW_TO_RUN.md](software/advisor_
 
 - 🔴 **The model has never seen our own specimens.** Everything measured so far is on the authors' URPC images. Camera is in hand (Logitech, outside the glass); tank and 4 real specimens still to buy. **This is the largest single unknown left** — the weights are frozen on murky seabed footage and our scene is lit glassware. Procedure for reading the result: "Your own tank" in `HOW_TO_RUN.md` §5. Expect lower confidences; that is not a broken install.
 - ⏳ **Enhancement step — built and measured 15 Sept, but on *simulated* turbidity.** `bench_enhance.py` must be re-run on real tank footage once the specimens exist. The numbers on the turbidity slide are not quotable until it is.
+- 🆕 **The advisor is sending her underwater enhancement code** (announced 16 Sept; likely the FSCIN stage-1 restoration from §3). **Decision D21: it goes into `bench_enhance.py` as a third measured arm, NOT into the demo path.** Wednesday 16th is the feature freeze, and any enhancement shifts inputs off the distribution the frozen weights were trained on — the same effect already measured for CLAHE. If it beats CLAHE on the turbidity ladder, swap what the existing toggle calls; if it does not, we have an honest slide saying we evaluated the authors' own method and reported the result. Either outcome earns Technological Advancement and IP-respect points; neither risks the demo. **Do not wire it into `predict_video.py` on the strength of it being hers.**
 - ⏳ **The demo's confidence floor is not yet chosen.** Default 0.25 holds until someone finds the lowest clean value on the real tank, then pins it and rehearses with it.
 - Venue: power, water permitted, set-up time — unconfirmed.
 - Pre-competition submission deadline — unverified and dangerous if wrong.
@@ -124,14 +146,14 @@ Full operating detail: **[software/advisor_code/HOW_TO_RUN.md](software/advisor_
 
 ---
 
-## 7. The four-day plan
+## 7. The plan — three working days, then three days on site
 
-Ordered by *what is unrecoverable if skipped*, not by size. ★ = found by adversarial review 15 Sept, not in the original plan.
+Ordered by *what is unrecoverable if skipped*, not by size. ★ = found by adversarial review 15 Sept.
 
-### Tue 15 — only the things that cannot be done later
-1. **Email the organiser.** Submission deadline? Power sockets and plug type? **Projector resolution and input?** Is a water tank permitted? How long to set up? — Every one of these is answerable today and unanswerable on Sunday.
+### Carried over from Tue 15 — still not done, still blocking
+1. **Email the organiser.** Submission deadline? Power and plug type? **Projector resolution?** ★ **How long may the presentation run?** — the agenda answered the dates and gave us a Sunday rehearsal, but not these.
 2. **Send the permission message** ([team/S3_presentation.md](team/S3_presentation.md) §1) — and ★ **fix the fallback rule now, in writing: if no reply by Thursday noon, we present the model as a third-party component under evaluation and demo no proprietary internals.** Decide it cold, not on stage.
-3. **Buy the camera.** Last unbought item; shipping is the binding constraint.
+3. ✅ ~~Buy the camera~~ — solved, the lent Logitech, $0. **Now blocking: the tank and four real specimens.** Until they exist the model has never been tested on anything of ours.
 4. **Back up `best.pt` ×3** — laptop, USB, cloud.
 
 ### Wed 16 — FEATURE FREEZE at end of day
@@ -155,6 +177,9 @@ Ordered by *what is unrecoverable if skipped*, not by size. ★ = found by adver
 18. Two USBs + cloud. Slides as PDF *and* PPTX.
 19. ★ **Pack one crate in reverse-use order and time the setup cold**, sealed crate to first inference. Setup is the only part never practised, and judges are already watching.
 20. ★ The teamwork clock **starts when you enter the room and stops when the last cable is coiled.** Most teams go silent and scatter during exactly the minutes that are still being observed.
+
+### Sun 20 — on site, 16:00–18:00
+21. **The rehearsal slot is a scored dress rehearsal that does not count.** Bring everything. Test on the venue projector, find the sockets, confirm our slot at drawing lots, ask the presentation length. Anything learned goes into `team/IF_IT_BREAKS.md` that evening.
 
 **Deliberately not doing:** a side-by-side 2.3 s vs 1.12 s speed race (needs the old code path back under a freeze), an on-screen segment timer (a printed card does it), a hot-spare second app instance (4 GB extra VRAM on an 8 GB card risks OOM in the thing it protects), object tracking (no time — say so instead).
 

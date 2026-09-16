@@ -8,13 +8,13 @@
 | **Chinese advisor** | 王丽 (Wang Li), School of Computer Science |
 | **Advisor meeting** | Fri 11 Sept, 15:00–16:00 Beijing = **14:00–15:00 Phnom Penh** · Tencent Meeting **228-177-824** |
 | **Competition** | 2026 World Vocational College Skills Competition — Southeast Asia Division |
-| **Dates & venue** | **19–21 September 2026**, Cambodia–China University of Technology and Science (CCUTech), Phnom Penh |
+| **Dates & venue** | ~~19–21 September~~ → **20–22 September 2026** · we compete **Mon 21, 13:30–17:00, Room 501** *(agenda of 16 Sept — see [`../team/competition_days.md`](../team/competition_days.md))* · Cambodia–China University of Technology and Science (CCUTech), Phnom Penh |
 | **Scale** | 80 teams, 8 countries. Winners advance to the global finals in China. |
 | **Brief written** | 11 September 2026 · **Revised 11 September (evening) — see revision notice below** |
 
 > ## 🛑 Do not read this file this week
 >
-> **← [README.md](../README.md) is all you need before 19 September.** This is 1,000 lines of background. Reading it will cost you a day you do not have.
+> **← [README.md](../README.md) is all you need before 20 September.** This is 1,000 lines of background. Reading it will cost you a day you do not have.
 >
 > **Owner:** S2 · **Open it when:** you need to *look one thing up*, not to study · **Use the jump table below. Never read it top to bottom.**
 

@@ -29,15 +29,27 @@
 3. Available online 20–22 Sept? Plan as if no.
 4. *"What is our innovation point, in your view?"* — ask separately, later. Worth 10 points.
 
+## Answered by the new agenda — uploaded 16 Sept
+
+`reference/Agenda_for_2026_…Southeast.doc` supersedes the 19–21 Sept agenda attached to the invitation letter. Detail: [`../team/competition_days.md`](../team/competition_days.md).
+
+| Question | Answer |
+|---|---|
+| When exactly do we compete? | **Mon 21 Sept, 13:30–17:00** (Groups 16–30), **Room 501**, New Generation Information Technology Track |
+| Can we test the day before? | ✅ **Yes — Sun 20 Sept, 16:00–18:00, Auditorium: "Registration, drawing lots and rehearsal."** Bring the whole rig |
+| When can we travel home? | Not before **Tue 22 Sept.** Awarding is 14:40, departure 15:30–21:00 |
+
 ## Still open — with the organisers, and more urgent than they look
 
 5. 🔴 **Is anything due before 20 September** — a report, abstract or slide submission? Missing a deadline is the worst possible way to lose. **Ask this today.**
-6. Venue power: sockets, voltage, plug type?
-7. Is a water tank permitted? How long do we get to set up before the 20 minutes starts? Can we test the day before?
-8. Is there a safety protocol for water near electrical equipment? *(Safety Awareness is 3 points.)*
+6. 🔴 **How long may the presentation run?** The letter caps the *operation* at 20 minutes, then says "followed by an on-site presentation" **with no duration given.** We had been assuming it was all one 20-minute block; it is not. **Ask at drawing lots on the 20th.** Until then S3's deck flexes between 5 and 10 minutes.
+7. 🔴 **Does the agenda's "Group 22" mean us?** Each university numbers its own groups and we are Group 22 on the RUPP list. Morning vs afternoon hangs on it. **Confirm on the 20th, not on the 21st.**
+8. Venue power: sockets, voltage, plug type? *(You can answer this yourself at the Sunday rehearsal — go and look.)*
+9. Is a water tank permitted on stage, and how long do we get to set up before the clock starts?
+10. Is there a safety protocol for water near electrical equipment? *(Safety Awareness is 3 points.)*
 
 ## Still open — inside the team
 
-9. Do the other two laptops have an NVIDIA GPU? If only one machine can run the model, **that machine goes on stage and its charger is not optional.**
-10. How many hours per day can all three of you actually work, 15–18 Sept?
-11. Has the camera been bought? This is the last unbought item and shipping time is the binding constraint, not money.
+11. Do the other two laptops have an NVIDIA GPU? If only one machine can run the model, **that machine goes on stage and its charger is not optional.**
+12. How many hours per day can all three of you actually work, 16–18 Sept?
+13. ✅ ~~Has the camera been bought?~~ **Solved — the lent Logitech, $0.** Now: **have the tank and the four real creatures been bought?** That is the last blocking item.

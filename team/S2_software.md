@@ -3,8 +3,8 @@
 ← [README.md](../README.md) · **how to run it: [`../software/advisor_code/HOW_TO_RUN.md`](../software/advisor_code/HOW_TO_RUN.md)** · what we may claim: [`../advisor/Advisor_Code_Findings.md`](../advisor/Advisor_Code_Findings.md)
 
 **You own:** the AI running, camera → AI, what the judges see on screen, and the backups.
-**On stage:** minutes **06:30 – 13:00** — the AI section.
-**Today is Tue 15 Sept. Competition is Sun 20 – Tue 22 Sept.** Four working days.
+**On stage:** operation minutes **08:00 – 20:00** — the AI section. *Grew from 6½ to 12 minutes on 16 Sept: the 20-minute clock covers the **operation only**, and S3's presentation follows it rather than eating the last 7 minutes. Use the extra time on the turbidity ladder, not on more talking.*
+**Today is Wed 16 Sept — three working days.** **Mon 21 we compete, 13:30–17:00, Room 501.** Stage rehearsal **Sun 20, 16:00–18:00** → [competition_days.md](competition_days.md).
 
 ---
 
@@ -27,9 +27,9 @@ cd app && python app.py               # http://localhost:8080
 
 ---
 
-## Your week — Tue 15 → Fri 18
+## Your week — Wed 16 → Fri 18, then on site
 
-**Tue 15 — backups and the camera**
+**Carried over from Tue 15 — backups and the camera**
 - [ ] 🔴 **Back up `best.pt` ×3** — laptop, USB stick, cloud. 139 MB, irreplaceable, and it exists only because the advisor sent it. Do this before anything else.
 - [ ] **Lock the camera settings before any AI work** — exposure, white balance, gain, and force MJPG *(a compressed format; without it many USB cameras crawl at ~5 fps)*. Check ≥25 fps. Copy the numbers the driver **reports back** into `../hardware/Purchase_Log.md`, not the ones you asked for.
 - [ ] Live end to end: camera in, boxes out, on the Real-time Monitoring tab.
@@ -49,7 +49,7 @@ cd app && python app.py               # http://localhost:8080
 **Thu 17 — rehearse**
 - [ ] **Cold-boot test:** shut the laptop fully down, restart, run the whole demo from nothing, **Wi-Fi off**. This catches what nothing else catches.
 - [ ] Rehearse the recovery below until it is boring.
-- [ ] Your 06:30–13:00 section, three times, no notes.
+- [ ] Your 08:00–20:00 operation section, three times, no notes.
 
 **Fri 18 — packed and boring**
 - [ ] Full run ×2, on time. No code changes.

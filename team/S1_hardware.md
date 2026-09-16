@@ -2,13 +2,14 @@
 
 # S1 — Hardware, tank, footage, packing
 
-**Today is Tuesday 15 September. The competition is Sun 20 – Tue 22 September. You have 4 working days: Tue 15 → Fri 18. Sat 19 is travel/rest.**
+**Today is Wednesday 16 September. You have 3 working days: Wed 16 → Fri 18.** Sat 19 travels · **Sun 20 rehearsal on stage 16:00–18:00** · **Mon 21 we compete, 13:30–17:00, Room 501** · Tue 22 awards.
+📄 [team/competition_days.md](competition_days.md) — **you pack for all three days, so read it.**
 
 ## What you own
 
 1. **Buying** the camera, torch, tank and props — budget ceiling **US$100 total**, log every item in [`../hardware/Purchase_Log.md`](../hardware/Purchase_Log.md).
 2. **Building** the tank rig and the lighting, **filming the backup video**, and packing the equipment box.
-3. **Stage minutes 00:00–06:30** — the robot and the safety lines (safety is 3 rubric points for 30 seconds of talking).
+3. **Operation minutes 00:00–08:00** — the rig and the safety lines (safety is 3 rubric points for 30 seconds of talking). *Widened from 06:30 on 16 Sept: the 20 minutes is now S1 + S2 only, because S3's presentation comes after it, not inside it.*
 
 ---
 
@@ -34,7 +35,7 @@ That is now the only thing blocking the whole team. S2 cannot test the AI on any
 
 ---
 
-## Mon 14 September — buy everything, test the camera wet
+## Buy everything — overdue, do it today (was Mon 14)
 
 - [x] ~~Waterproof UVC USB endoscope camera~~ — **not needed, the Logitech is lent and in hand. $0.**
 - [ ] **LED torch** — $8–15. ⭐ Lighting matters **more** than the camera. It does not need to be waterproof any more: it lights the tank from outside, like the camera.
@@ -46,7 +47,7 @@ That is now the only thing blocking the whole team. S2 cannot test the AI on any
 - [x] ~~Submersion test~~ — **not applicable.** Nothing we own goes in the water. Keep the webcam and every cable well clear of spills.
 - [ ] Hand the camera to S2 and confirm Linux sees it: `v4l2-ctl --list-devices`. Note the number in `/dev/videoN` — the built-in webcam is usually `0`, so the Logitech is probably `1` or `2`. That number goes into the app's Real-time Monitoring tab.
 
-## Tue 15 September — build the tank and the lighting
+## Build the tank and the lighting — the moment you are back from the market
 
 - [ ] Line the **far wall and floor with matte black** card or plastic. Fill with water, add gravel and the four creatures.
 - [ ] Stand the webcam **against the outside of the glass**, lens as close to the glass as it will go. Fix it so it is **rigid** — motion blur kills small-target detection. Shade the front of it: the room reflects in the glass straight back into the lens, and that is the number-one reason a tank shot comes out unusable.
@@ -74,6 +75,22 @@ That is now the only thing blocking the whole team. S2 cannot test the AI on any
 - [ ] Rehearse with **no notes in your hands**. Practise the hand-off line to S2.
 - [ ] Confirm the backup recording **opens** from the USB stick on the stage laptop, then final pack.
 - [ ] Stop on a good run. Sleep matters more than one more rehearsal.
+
+## Sun 20 September — 🔴 **the on-stage rehearsal, 16:00–18:00**
+
+The agenda gives us two hours in the Auditorium for "registration, drawing lots and rehearsal". **This is your dress rehearsal on the real stage and it does not count against us.** You own the rig, so you own this slot.
+
+- [ ] **Bring everything**, including water and the creatures. Do not turn up to watch.
+- [ ] **Time the setup cold**, sealed crate to first inference, in the actual room.
+- [ ] Find the **power sockets**, check the plug type, measure the cable run.
+- [ ] Check the **projector**: stand at the back of the room and confirm the boxes and labels are readable.
+- [ ] Ask: is water permitted on stage, and how long do we get to set up before the clock starts?
+- [ ] Everything you learn goes into [`IF_IT_BREAKS.md`](IF_IT_BREAKS.md) that evening.
+
+## Mon 21 September — competition day
+
+- [ ] Registration **07:30–08:00**. Be there in the morning even though we run in the afternoon — watching earlier teams is free reconnaissance.
+- [ ] **We are Groups 16–30: 13:30–17:00, Room 501.** Confirm the exact slot at drawing lots the day before.
 
 ---
 
@@ -104,7 +121,8 @@ Also force **MJPG** (a compressed format — many UVC cameras default to raw YUY
 
 | Deadline | If you miss it |
 |---|---|
-| **Mon 14, end of day** — camera bought and it opens on the laptop | Buy tomorrow morning only. Tell the team in chat tonight. |
+| ✅ ~~Camera bought and it opens on the laptop~~ | **Done — the lent Logitech, $0.** |
+| 🔴 **Wed 16 (today), end of day** — tank + four real creatures in hand | Everything downstream waits on this. The AI has still never been tested on anything of ours. |
 | **Wed 16, 14:00** — camera works in the tank, end to end | 🔴 **Switch to Tier 0 permanently: recorded video only.** Stop spending on hardware. A rehearsed video demo beats a half-working camera. Decide once, do not look back — deciding late is what kills teams, not deciding wrong. |
 | **Wed 16, end of day** — backup video recorded and it plays | Record it Thursday morning before anything else. You do not travel without it. |
 | **Thu 17** — box packed and checked | Pack Friday morning, then set up once from the box. |

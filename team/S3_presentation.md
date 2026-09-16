@@ -3,8 +3,13 @@
 # S3 — Slides, Attribution, Cambodia Story
 
 **You own:** the slide deck, the attribution/IP slide, all messages to the advisor, the Cambodia impact story.
-**On stage:** minutes **13:00–20:00** — results, Cambodia, attribution, close.
-**Today is Tue 15 Sept.** Four working days: Tue 15 → Fri 18. Sat 19 = travel. Competition **Sun 20 – Tue 22**.
+**On stage:** **the whole presentation, which happens *after* the 20-minute operation ends** — results, Cambodia, attribution, close.
+**Today is Wed 16 Sept** — three working days. **Mon 21 we compete, 13:30–17:00, Room 501.** Stage rehearsal **Sun 20, 16:00–18:00** → [competition_days.md](competition_days.md).
+
+> ### ⚠️ Changed 16 Sept — your slot is not 7 minutes inside the 20
+> The invitation letter says teams *"complete the skill operation **within 20 minutes**… **followed by** an on-site presentation."* So the 20-minute clock is S1 and S2 doing things; **your presentation is a separate block after it.**
+>
+> **Its length is stated nowhere.** Do not assume 20 minutes and do not assume 7. **Build a 10-minute deck that can be delivered in 5 by dropping marked-optional slides** — mark them in the speaker notes now, while it is cheap. Ask the organisers at drawing lots on Sunday the 20th and adjust that evening.
 
 ---
 
@@ -67,7 +72,7 @@ Say it out loud too: *"The detection model is not ours. It is patented work by o
 
 | # | Slide | What goes on it |
 |---|---|---|
-| 1 | Title | OceanEye · Group 22 · Dararoth, Yuleang, Sophearoth. **Not their team's names.** |
+| 1 | Title | **Use the registered title, word for word:** *"OceanEye: AI Vision-Driven Intelligent Underwater Perception and Detection System"* (`OceanEye—AI视觉驱动的水下智能感知与检测系统`). Group 22 · Dararoth, Yuleang, Sophearoth. **Not their team's names.** ⚠️ This is the exact wording we are registered under in the organisers' list — our own docs had been calling it "…Underwater Robot Intelligent Biological Detection System", which is not what the judges have on their sheet |
 | 2 | The problem | Water scatters and absorbs light → low contrast, blur, noise; small creatures look like background. Their deck slide 6 is exactly this — reuse it. |
 | 3 | Our platform | Photo of the tank + a **borrowed 1080p USB webcam filming through the glass**, torch 20–40 cm to the side. Say the cost out loud — the camera was **$0**, the whole rig is under $100. Frugality is the point, not an apology. |
 | 4 | The model | "Mamba-YOLO — a YOLOv8 architecture in which the feature blocks are replaced with Mamba state-space blocks." State-space models are a 2024 line; linear, not quadratic, in sequence length. |
@@ -98,9 +103,9 @@ Their deck hands you the policy anchors free: Pentagonal Strategy Phase I · Dig
 
 ---
 
-## 5. Your week — Tue 15 → Fri 18
+## 5. Your week — Wed 16 → Fri 18, then on site
 
-**Tue 15**
+**Carried over from Tue 15 — do first**
 - [ ] Send the permission message above. Before anything else.
 - [ ] Read §0 and mark which of the advisor's slides you may reuse as-is.
 - [ ] Build slides 1–4 and 8–10 with **placeholder numbers in [brackets]** so the gaps are obvious.
@@ -121,6 +126,10 @@ Their deck hands you the policy anchors free: Pentagonal Strategy Phase I · Dig
 - [ ] Slides on 2 USB sticks + 1 cloud folder, exported to **PDF** as well as PPTX.
 - [ ] Full run with **Wi-Fi off**, after a **cold boot**. Final check: every number on every slide is one you can point at a file for.
 - [ ] Sat 19 = travel/rest. **Nothing new.**
+
+**Sun 20 — on site**
+- [ ] 16:00–18:00 rehearsal in the Auditorium. **Ask the organisers how long the presentation may run**, then cut or restore your optional slides that evening.
+- [ ] Note what drawing lots decides, and write our confirmed slot into [competition_days.md](competition_days.md).
 
 ---
 

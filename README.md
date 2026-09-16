@@ -1,7 +1,9 @@
 # OceanEye — Group 22
 
-**Competition: Sunday 20 – Tuesday 22 September 2026.**
-**Today is Tuesday 15 September.** Four working days: Tue 15 → Fri 18. Sat 19 travels.
+**Today is Wednesday 16 September.** Three working days: Wed 16 → Fri 18. Sat 19 travels.
+
+**We compete Monday 21 September, 13:30–17:00, Room 501.** Rehearsal on the real stage **Sunday 20th, 16:00–18:00** — bring everything.
+📄 **All three days, hour by hour → [team/competition_days.md](team/competition_days.md)**
 
 ---
 
@@ -9,13 +11,16 @@
 
 | You | Open this | It contains |
 |---|---|---|
-| **S1** | **[team/S1_hardware.md](team/S1_hardware.md)** | Camera, tank, lighting, filming, packing. Stage 00:00–06:30 |
-| **S2** | **[team/S2_software.md](team/S2_software.md)** | Making the AI run, camera→AI, backups. Stage 06:30–13:00 |
-| **S3** | **[team/S3_presentation.md](team/S3_presentation.md)** | Slides, attribution, the story. Stage 13:00–20:00 |
+| **S1** | **[team/S1_hardware.md](team/S1_hardware.md)** | Camera, tank, lighting, filming, packing. **Operation 00:00–08:00** |
+| **S2** | **[team/S2_software.md](team/S2_software.md)** | Making the AI run, camera→AI, backups. **Operation 08:00–20:00** |
+| **S3** | **[team/S3_presentation.md](team/S3_presentation.md)** | Slides, attribution, the story. **The presentation, which comes *after* the 20 minutes** |
 
 Each one is a single page with dated checkboxes. **Nobody reads everything.**
 
+> ⚠️ **Changed 16 Sept.** We had been splitting one 20-minute block three ways. The invitation letter actually says *"complete the skill operation **within 20 minutes**… **followed by** an on-site presentation"* — so the 20 minutes is **S1 + S2 only**, and S3's slides are a separate thing afterwards. **S2 gains about 5 minutes; S3 is no longer squeezed.** The presentation's own length is not stated anywhere — ask at drawing lots on the 20th.
+
 Two more, for everyone:
+- **[team/competition_days.md](team/competition_days.md)** — the three days hour by hour. **Read before you pack.**
 - **[team/IF_IT_BREAKS.md](team/IF_IT_BREAKS.md)** — what to say on stage when something fails. **Print it.**
 - **[team/glossary.md](team/glossary.md)** — every technical word in plain English. Search it, don't read it.
 
@@ -27,7 +32,7 @@ Two more, for everyone:
 2. Software on a laptop that watches the video, **draws a box around each creature** and names it.
 3. Four creatures only: **sea cucumber, sea urchin, scallop, starfish.**
 4. It must work **with the Wi-Fi off.** The venue has no internet.
-5. **20 minutes on stage.** Three of us, one part each.
+5. **A 20-minute live operation, then a presentation.** Three of us, one part each.
 
 **The thing that wins:** 25 of the 100 points go to *running it smoothly* — Skill Proficiency 15 + Operational Standardization 10. Zero points go to how clever the AI is. **Rehearse more than you build.**
 
