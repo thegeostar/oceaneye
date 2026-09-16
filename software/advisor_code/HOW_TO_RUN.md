@@ -177,6 +177,36 @@ Then open **Real-time Monitoring** in the web page and give it that number.
 > recorded footage it stamps `PLAYING RECORDED FOOTAGE - NOT LIVE` on the screen.
 > Never narrate a recorded file as live. Professional Conduct is 10 points.
 
+### 🚫 Never test by pointing the camera at another screen
+
+It is the obvious shortcut and it is the **worst** test available. Measured 16 Sept on the reference image, which normally scores `starfish 0.83 / holothurian 0.78`:
+
+| What was done to it | Detections |
+|---|---|
+| nothing — the original file | **2** — 0.83, 0.78 |
+| washed out (screens lift the blacks) | 2 — no real damage |
+| blurred (imperfect focus) | 2 — no real damage |
+| shrunk in the frame | 1 — **sea cucumber lost** |
+| moiré banding (sensor grid vs pixel grid) | 1 — **sea cucumber lost** |
+| **all four together = photographing a screen** | **0 — nothing at all** |
+
+Each effect alone is survivable. **Stacked, they wipe out every detection.** So a bad result off a screen tells you almost nothing about the model — it is measuring the screen.
+
+**Test the file instead.** Copy the image onto this laptop and use the **Image Detection** tab, or `python verify_model.py that_file.jpg`. That removes the camera and the screen from the experiment completely. If the file detects and the screen does not, the model was never the problem.
+
+### Fill the frame — the single biggest capture setting
+
+Same measurement, shrinking the subject:
+
+| Subject size in frame | Result |
+|---|---|
+| 100% | starfish 0.83 · holothurian 0.78 |
+| 60% | both, but false positives start appearing at 0.36–0.38 |
+| 40% | holothurian down to **0.28** |
+| 30% | holothurian **gone** |
+
+The starfish is big and high-contrast and survives. **The sea cucumber dies first** — and it is the one people most want to see. So: **2–3 creatures filling the frame beats 5–6 small ones.** Get the lens closer rather than fitting more in.
+
 ### Your own tank: telling "saw nothing" apart from "almost saw it"
 
 Expect the first tank test to detect **less** than her sample images do. That is not a

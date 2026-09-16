@@ -52,7 +52,8 @@ That is now the only thing blocking the whole team. S2 cannot test the AI on any
 - [ ] Line the **far wall and floor with matte black** card or plastic. Fill with water, add gravel and the four creatures.
 - [ ] Stand the webcam **against the outside of the glass**, lens as close to the glass as it will go. Fix it so it is **rigid** — motion blur kills small-target detection. Shade the front of it: the room reflects in the glass straight back into the lens, and that is the number-one reason a tank shot comes out unusable.
 - [ ] **Light from the side, never from beside the lens.** Put the torch **20–40 cm to the side**, angled onto the creatures, and tape the white translucent plastic over it as a diffuser. Front light bounces off the glass and blinds the shot.
-- [ ] Set the camera **10–25 cm** from the creatures. Find the distance where **3–6 targets** are visible and stop there.
+- [ ] Set the camera **10–25 cm** from the creatures, and **fill the frame with 2–3 of them, not 5–6.** *(Changed 16 Sept — measured.)*
+  > **Why:** shrinking the subject in the frame is the fastest way to lose a detection. On the reference image, at 100% of frame both creatures are found at 0.83 and 0.78; at 40% the sea cucumber has fallen to 0.28, and by 30% it is gone entirely. The starfish survives — it is big and high-contrast — but **the sea cucumber is the class that dies first**, and it is the one everyone wants to see. Cramming in more creatures makes every one of them smaller. Fewer, bigger, closer.
 - [ ] With S2, **lock the camera settings** (see below) and copy the numbers into the Purchase_Log table.
 - [ ] Film **2–3 minutes of footage** of the rig working. This is raw material for S2 and your insurance.
 - [ ] Read your script minutes 00:00–06:30 aloud once, with a timer.
