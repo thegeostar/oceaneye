@@ -1,0 +1,8 @@
+# This was a stock Python .gitignore that came with the upstream ultralytics repo.
+# Its patterns were not choices we made, and three of them hid our own work:
+# `output_dir` hid the training results (results.csv, PR_curve.png,
+# confusion_matrix.png), and `docs` and `examples` would hide those folders too.
+#
+# A .gitignore in a subfolder overrides the one at the repo root, so those patterns
+# won out over anything we wrote up there. Emptied deliberately: the root .gitignore
+# covers __pycache__, build artefacts and the rest for the whole project.

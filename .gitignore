@@ -1,44 +1,30 @@
-# --- Too big for GitHub (100 MB hard limit per file) ---
-# These live in the shared Google Drive folder instead.
+# Everything in this folder is shared with the team except what is listed here.
+# The repo is private, so the only reasons to exclude something are size and the
+# fact that it is regenerated rather than written by us.
+
+# --- The virtualenv ---
+# 7.5 GB of pip-installed packages, 19 of them over GitHub's 100 MB limit. Not our
+# work: rebuild it with python3.11 -m venv, then install torch and `pip install -e software/`.
+.venv/
+.venv311/
+
+# --- Over GitHub's 100 MB per-file hard limit ---
+# best.pt, the trained model, is 139 MB. Send it to the team over group chat.
 *.pt
 *.onnx
-*.so
-*.o
-*.zip
-*.mp4
-*.avi
-*.mov
-software/*
-!software/selective_scan_fallback.py
-!software/verify_model.py
-!software/bench_enhance.py
 
-# The Flask app. Our edits live in these files — the English UI, the shared model,
-# the threaded camera loop — so they have to be in the repo or a fresh clone loses
-# them. The ultralytics engine (216 files) stays ignored.
-!software/app/
-software/app/*
-!software/app/app.py
-!software/app/predict_img.py
-!software/app/predict_video.py
-!software/app/predict_camera.py
-!software/app/test_dom_ids.py
-!software/app/test_export_video.py
-!software/app/templates/
-!software/app/static/
-software/app/static/*
-!software/app/static/css/
-!software/app/static/js/
-!software/app/static/images/
-# her published result for 000013.jpg — verify_model.py says to compare against it
-!software/app/static/000013_detected.jpg
+# --- Written while the app runs, not work ---
+# The annotated images and videos the app produces. Regenerated on the next run,
+# and detected/ alone is ~100 MB of old output.
+software/app/static/detected/
+flask_session/
+runs/
+proof.jpg
 
-# The upload folder is a working directory: whatever gets uploaded during a demo lands
-# here and none of it belongs in the repo. These four are the exception — they are the
-# fixtures verify_model.py and bench_enhance.py run against, and without them a fresh
-# clone cannot reproduce starfish 0.83 / holothurian 0.78. URPC_test_video.mp4 stays
-# out (88 MB, Drive folder), which bench_enhance.py reports and works around.
-!software/app/upload/
+# The upload folder is where demo uploads land, so it fills with whatever was tested
+# that day. The four fixtures below are the exception: verify_model.py and
+# bench_enhance.py run against them, and without them a fresh clone cannot reproduce
+# starfish 0.83 / holothurian 0.78. URPC_test_video.mp4 is 84 MB and goes over chat.
 software/app/upload/*
 !software/app/upload/000013.jpg
 !software/app/upload/003045.jpg
@@ -46,21 +32,13 @@ software/app/upload/*
 !software/app/upload/test_000183.jpg
 
 # --- Python ---
-.venv/
-.venv311/
 __pycache__/
 *.pyc
 *.egg-info/
 build/
 dist/
 
-# --- Junk ---
+# --- Editor and OS junk ---
 .DS_Store
 .idea/
 .ipynb_checkpoints/
-flask_session/
-runs/
-proof.jpg
-# detection output from the web app. static/000013_detected.jpg is a REFERENCE file
-# we compare against, so uploads are written to this subfolder instead of over it.
-software/app/static/detected/
