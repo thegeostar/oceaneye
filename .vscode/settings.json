@@ -8,8 +8,7 @@
   },
   "search.exclude": {
     "**/.venv": true,
-    "**/software/advisor_code": true,
-    "**/archive": true
+    "**/software/ultralytics": true
   },
   "explorer.sortOrder": "type",
   "markdown.preview.breaks": true

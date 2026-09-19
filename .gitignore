@@ -1,5 +1,5 @@
 # --- Too big for GitHub (100 MB hard limit per file) ---
-# These live in the shared Google Drive folder instead. See README.md.
+# These live in the shared Google Drive folder instead.
 *.pt
 *.onnx
 *.so
@@ -8,36 +8,42 @@
 *.mp4
 *.avi
 *.mov
-software/advisor_code/*
-!software/advisor_code/HOW_TO_RUN.md
-!software/advisor_code/selective_scan_fallback.py
-!software/advisor_code/verify_model.py
-!software/advisor_code/bench_scan.py
-!software/advisor_code/bench_enhance.py
+software/*
+!software/selective_scan_fallback.py
+!software/verify_model.py
+!software/bench_enhance.py
 
 # The Flask app. Our edits live in these files — the English UI, the shared model,
 # the threaded camera loop — so they have to be in the repo or a fresh clone loses
-# them. ~280 KB of text and two images. Her other ~3000 files stay ignored.
-!software/advisor_code/app/
-software/advisor_code/app/*
-!software/advisor_code/app/app.py
-!software/advisor_code/app/user.py
-!software/advisor_code/app/predict_img.py
-!software/advisor_code/app/predict_video.py
-!software/advisor_code/app/predict_camera.py
-!software/advisor_code/app/test_dom_ids.py
-!software/advisor_code/app/templates/
-!software/advisor_code/app/static/
-software/advisor_code/app/static/*
-!software/advisor_code/app/static/css/
-!software/advisor_code/app/static/js/
-!software/advisor_code/app/static/images/
+# them. The ultralytics engine (216 files) stays ignored.
+!software/app/
+software/app/*
+!software/app/app.py
+!software/app/predict_img.py
+!software/app/predict_video.py
+!software/app/predict_camera.py
+!software/app/test_dom_ids.py
+!software/app/test_export_video.py
+!software/app/templates/
+!software/app/static/
+software/app/static/*
+!software/app/static/css/
+!software/app/static/js/
+!software/app/static/images/
 # her published result for 000013.jpg — verify_model.py says to compare against it
-!software/advisor_code/app/static/000013_detected.jpg
-advisor/videos/
-software/data/footage/
-software/data/weights/
-software/data/datasets/
+!software/app/static/000013_detected.jpg
+
+# The upload folder is a working directory: whatever gets uploaded during a demo lands
+# here and none of it belongs in the repo. These four are the exception — they are the
+# fixtures verify_model.py and bench_enhance.py run against, and without them a fresh
+# clone cannot reproduce starfish 0.83 / holothurian 0.78. URPC_test_video.mp4 stays
+# out (88 MB, Drive folder), which bench_enhance.py reports and works around.
+!software/app/upload/
+software/app/upload/*
+!software/app/upload/000013.jpg
+!software/app/upload/003045.jpg
+!software/app/upload/test_000080.jpg
+!software/app/upload/test_000183.jpg
 
 # --- Python ---
 .venv/
@@ -57,4 +63,4 @@ runs/
 proof.jpg
 # detection output from the web app. static/000013_detected.jpg is a REFERENCE file
 # we compare against, so uploads are written to this subfolder instead of over it.
-software/advisor_code/app/static/detected/
+software/app/static/detected/
