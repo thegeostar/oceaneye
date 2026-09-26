@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OceanEye</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header class="navbar">
+        <h1>OceanEye: AI Vision-based Underwater Detection</h1>
+        <div id="user-info">
+            <span id="current-time"></span>
+            <span>Welcome, <img src="{{ url_for('static', filename='images/profile.svg') }}" alt=""> {{ username }}
+                <a href="{{ url_for('logout') }}" class="logout-btn">Log out</a>
+            </span>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" id="btn-live" class="tab">Video Detection</a></li>
+            <li><a href="#" id="btn-image" class="tab">Image Detection</a></li>
+            <li><a href="#" id="btn-camera" class="tab">Real-time Monitoring</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Welcome</h2>
+                <p>Detect sea cucumbers, sea urchins, starfish and scallops in images, videos and live camera feeds.</p>
+            </div>
+            <div id="live-preview" class="preview hidden">
+                <button id="btn-source" class="action-button">Choose Video</button>
+                <a id="btn-download-video" class="action-button" href="/download-video">Download Video</a>
+                <input type="file" id="videoUpload" accept="video/*" hidden>
+                <div>
+                    <img id="live-video" src="{{ url_for('static', filename='images/play-button-r.svg') }}" alt="Video stream">
+                </div>
+            </div>
+            <div id="camera-preview" class="preview hidden">
+                <select id="camera-select" class="action-button">
+                    <option value="0">Camera 1</option>
+                    <option value="1">Camera 2</option>
+                </select>
+                <button id="btn-camera-start" class="action-button">Start Detection</button>
+                <button id="btn-enhance" class="action-button">Enhancement: OFF</button>
+                <div id="camera-output"></div>
+            </div>
+            <div id="image-preview" class="preview hidden">
+                <button id="btn-choose-image" class="action-button">Choose Image</button>
+                <a id="btn-download-image" class="action-button" download>Download Image</a>
+                <input type="file" id="imageUpload" accept="image/*" hidden>
+                <div>
+                    <img id="img-put" src="{{ url_for('static', filename='images/image.svg') }}" alt="Detection result">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 OceanEye</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

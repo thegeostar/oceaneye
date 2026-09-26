@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv*/
+
+# Written by the app and scripts at run time
+flask_session/
+app/static/detected/
+runs/
+proof.jpg
+
+# Uploads land here during use. Keep only the four test images that
+# verify_model.py and bench_enhance.py read.
+app/upload/*
+!app/upload/000013.jpg
+!app/upload/003045.jpg
+!app/upload/test_000080.jpg
+!app/upload/test_000183.jpg
+
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
+.ipynb_checkpoints/
+
+# Slides and thesis stay local
+docs/
